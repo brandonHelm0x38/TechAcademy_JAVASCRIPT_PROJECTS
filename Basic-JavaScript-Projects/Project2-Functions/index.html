@@ -13,7 +13,7 @@
     <div>
         <h3>Click the button to display the named element ID.</h3>
         <button onclick="dynamicParagraph()">Display Message!</button>
-        <p id="Paragraph_Text"></p>
+        <p id="Paragraph_Text">The message will change</p>
     </div>
     <!-- SECOND DEMO BUTTON; Changes text when clicked -->
     <div>
@@ -24,6 +24,18 @@
     <div>
         <h3>Hover over the button to change its text.</h3>
         <button onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">Hover Over Me!</button>
+    </div>
+    <!-- FOURTH DEMO BUTTON; Display Date in below dateString ID -->
+    <div>
+        <h3>Click the button to display the current date in a below element.</h3>
+        <button onclick="displayDate()">Display Date</button>
+        <p id="Date_Text"></p>
+    </div>
+    <!-- FIFTH DEMO BUTTON; Button with event handler style implementation -->
+     <div>
+        <h3>The addEventListener() Method; I can't get working...</h3>
+        <button id="myBtn">Time is?</button>
+        <p id="demo"></p>
     </div>
 </body>
 </html>
