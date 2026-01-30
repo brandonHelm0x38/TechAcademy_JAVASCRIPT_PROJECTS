@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 2 Functions</title>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <!-- MAIN PAGE TITLE; (Will be displayed after Javascript document.write script text) -->
+    <h1>Basic JavaScript Projects - Project 2: Functions</h1>
+    <!-- FIRST DEMO BUTTON; Lower Paragraph Element Displays When Clicked -->
+    <div>
+        <h3>Click the button to display the named element ID.</h3>
+        <button onclick="dynamicParagraph()">Display Message!</button>
+        <p id="Paragraph_Text"></p>
+    </div>
+    <!-- SECOND DEMO BUTTON; Changes text when clicked -->
+    <div>
+        <h3>Click the button to change it's text.</h3>
+        <button onclick="dynamicButtonText()" id="Button_Text">Change Me!</button>
+    </div>
+    <!-- THIRD DEMO BUTTON; Changes text when hovered over -->
+    <div>
+        <h3>Hover over the button to change its text.</h3>
+        <button onmouseover="mouseOver(this)" onmouseout="mouseOut(this)">Hover Over Me!</button>
+    </div>
+</body>
+</html>
