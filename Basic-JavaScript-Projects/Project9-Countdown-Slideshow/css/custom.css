@@ -1,0 +1,22 @@
+/* Fade animation for slideshow */
+.slideshow-container {
+    position: relative;
+    width: 80%;
+    height: 80vh;
+    object-fit: cover;
+    margin: auto;
+    overflow: hidden;
+}
+.mySlides {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    transition: opacity 1.5s;
+    z-index: 0;
+}
+.mySlides.active {
+    opacity: 1;
+    z-index: 1;
+}

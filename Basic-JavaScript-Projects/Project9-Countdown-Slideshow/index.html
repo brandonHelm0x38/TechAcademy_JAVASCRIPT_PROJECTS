@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 9 Countdown Slideshow</title>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+    <!-- MAIN PAGE TITLE; (Will be displayed after Javascript document.write script text) -->
+    <h1>Basic JavaScript Projects - Project 9: Countdown Slideshow</h1>
+    <!-- Code automatically generated for countdown functionality -->
+    <div>
+        <h3>How many seconds would you like to set an alarm for?</h3>
+        <input type="number" id="secondsInput1" placeholder="Enter seconds">
+        <button onclick="countdown1()">Start Countdown</button>
+        <p id="countdownDisplay1"></p>
+    </div>
+    <!-- Code from Tech Academy -->
+     <div>
+        <h3>How many seconds would you like to set an alarm for?</h3>
+        <input type="number" id="secondsInput2" placeholder="Enter seconds">
+        <button onclick="countdown2()">Start Countdown</button>
+        <p id="countdownDisplay2"></p>
+    </div>
+    <!-- Slideshow Section -->
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="images/AcheivingEnough_1920x960.jpg" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/SP_Statue_BlackAndWhite.jpg" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/RearFront_Memorial_Magnitogorsk_Russia.jpg" style="width:100%">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+</body>
+</html>
