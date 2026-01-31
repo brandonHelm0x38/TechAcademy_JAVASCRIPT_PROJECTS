@@ -229,3 +229,23 @@ function displayE() {
 function resetEValueText() {
     document.getElementById("E_Value").innerHTML = "Hover to see the value of Euler's number e ...";
 }
+
+// Format a number to a fixed number of decimal places using toFixed() method...
+var floatNum = 45.6789;
+function toFixedMethod() {
+    var fixedNum = floatNum.toFixed(2); // Formats to 2 decimal places
+    document.getElementById("Fixed_Number").innerHTML = fixedNum;
+}
+function resetFixedNumberText() {
+    document.getElementById("Fixed_Number").innerHTML = "Hover to see " + floatNum + " formatted to 2 decimal places...";
+}
+
+// Format a number to a specific precision using toPrecision() method...
+var preciseNum = 123.456789;
+function toPrecisionMethod() {
+    var precise = preciseNum.toPrecision(4); // Formats to 4 significant digits
+    document.getElementById("Precise_Number").innerHTML = precise;
+}
+function resetPreciseNumberText() {
+    document.getElementById("Precise_Number").innerHTML = "Hover to see " + preciseNum + " formatted to 4 significant digits...";
+}

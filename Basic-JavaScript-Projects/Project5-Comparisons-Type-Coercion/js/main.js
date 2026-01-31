@@ -1,7 +1,6 @@
 // An example of JavaScript's type coercion in action...
 var coercedSum = "5" + 10; // The number 10 is coerced into a string and concatenated
-document.write("The result of '5' + 10 is: " + coercedSum);
-document.write("<br><br>");
+document.write("The result of '5' + 10 is: " + coercedSum + "<br>");
 var coercedSum2 = 5 + "10"; // The number 10 is coerced into a string and concatenated
 document.write("The result of 5 + '10' is: " + coercedSum2);
 document.write("<br><br>");
@@ -16,17 +15,17 @@ var myObject = {name: "Alice", age: 30}; // Object
 var mySymbol = Symbol("mySymbol");
 document.write("Data Types Examples:" + "<br>");
 document.write(typeof myString + "<br>");
-document.write("String: " + myString + "<br><br>");
+document.write("String: " + myString + "<br>");
 document.write(typeof myNumber + "<br>");
-document.write("Number: " + myNumber + "<br><br>");
+document.write("Number: " + myNumber + "<br>");
 document.write(typeof myBoolean + "<br>");
-document.write("Boolean: " + myBoolean + "<br><br>");
+document.write("Boolean: " + myBoolean + "<br>");
 document.write(typeof myUndefined + "<br>");
-document.write("Undefined: " + myUndefined + "<br><br>");
+document.write("Undefined: " + myUndefined + "<br>");
 document.write(typeof myNull + "<br>");
-document.write("Null: " + myNull + "<br><br>");
+document.write("Null: " + myNull + "<br>");
 document.write(typeof myObject + "<br>");
-document.write("Object: " + JSON.stringify(myObject) + "<br><br>");
+document.write("Object: " + JSON.stringify(myObject) + "<br>");
 document.write(typeof mySymbol + "<br>");
 document.write("Symbol: " + mySymbol.toString() + "<br><br>");
 
