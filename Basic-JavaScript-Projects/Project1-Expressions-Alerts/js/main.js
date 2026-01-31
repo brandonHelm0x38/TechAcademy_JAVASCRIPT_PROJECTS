@@ -43,6 +43,17 @@ var sum = a + b;
 document.write("The sum of " + a + " and " + b + " is: " + sum);
 document.write("<br>" + "<br>");
 
+// An example of JavaScript's type coercion in action...
+var coercedSum = "5" + 10; // The number 10 is coerced into a string and concatenated
+document.write("The result of '5' + 10 is: " + coercedSum);
+document.write("<br>" + "<br>");
+var coercedSum2 = 5 + "10"; // The number 10 is coerced into a string and concatenated
+document.write("The result of 5 + '10' is: " + coercedSum2);
+document.write("<br>" + "<br>");
+// ===============================================================================
+
+// ===============================================================================
+
 // Function to display/change HTML element ID content dynamically...
 function dynamicParagraph() {  // This function changes the content of an HTML element with the ID "Button_Text"
     var str = "This is the stored/dynamic text from JavaScript!"; // The string to be displayed  
