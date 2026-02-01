@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running JavaScript in the Console</title>
+</head>
+<body>
+    <p id="Global_Variables" onclick="global()">Global - Click Here!</p>
+    <p id="Local_Variables" onclick="local()">Local - Click Here!</p>
+    <hr>
+    <p id="Concatenate_Result" onclick="concatenate()">Concatenate - Click Here!</p>
+    <hr>
+    <button onclick="newCourse()">Click Here for New Course!</button>
+    <p id="Course_Info"></p>
+    <hr>
+    <p id="Display_Age"></p>
+    <script>
+        // A and B are global variables that can be editted in the console to see different results
+        // Global variables are modifiable in the console
+        let a =3;
+        let b =4;
+        function global() {
+            result = a + b;
+            document.getElementById("Global_Variables").innerHTML = "Global variable A (" + a + ") + global variable B (" + b + ") equals " + result;
+        }
+        // C and D are local variables that cannot be editted in the console to see different results
+        // Local variables are not modifiable in the console; However, you can copy and paste the function code into the console to run it there
+        function local() {
+            let c = 10;
+            let d = 20;
+            let result = c + d;
+            document.getElementById("Local_Variables").innerHTML = "Local variable C (" + c + ") + local variable D (" + d + ") equals " + result;
+        }
+
+        // These sentences are defined here to be accessible in the console for testing
+        let sentence1;
+        let sentence2;
+        function concatenate() {
+            let concatSentence = sentence1.concat(sentence2);
+            document.getElementById("Concatenate_Result").innerHTML = concatSentence;
+            console.log(concatSentence);
+        }
+
+        // Example of a constructor function to create course objects
+        function course(Name, Type, Duration) {
+            this.courseName = "Today's new course is: " + Name + "<br>";
+            this.courseType = "Type: " + Type + "<br>";
+            this.courseDuration = "Course Length: " + Duration + " hours<br>";
+        }
+        let js = new course("JavaScript", "Programming", 55);
+        let py = new course("Python", "Programming", 90);
+        // COPY AND PASTE THE BELOW FUNCTION INTO THE CONSOLE TO SEE DIFFERENT COURSE INFO
+        function newCourse() {
+            document.getElementById("Course_Info").innerHTML = js.courseName + js.courseType + js.courseDuration;
+            // document.getElementById("Course_Info").innerHTML = py.courseName + py.courseType + py.courseDuration;
+        }
+
+        // Age messdage function using prompt to get user input
+        let year = prompt("What is your birth year?");
+        let yearNow = new Date().getFullYear();
+        let age = Math.floor(yearNow - year);
+        // COMMENT OUT THE FOLLOWING LINES, THEN COPY AND PASTE THE BELOW FUNCTION INTO THE CONSOLE TO DISPLAY AGE MESSAGE...
+        if (age > 25) {
+            document.getElementById("Display_Age").innerHTML = "You ARE old enough to rent a car!"
+            console.log(age);
+        } else {
+            document.getElementById("Display_Age").innerHTML = "You ARE NOT old enough to rent a car... Sorry."
+            console.log(age);
+        }
+
+        // Console Log Examples of Window Object Methods
+        console.log("Current URL is: " + window.location.href);
+        console.log("Browser Code Name is: " + window.navigator.appCodeName);
+        console.log("Browser Language is: " + window.navigator.language);
+        console.log("Screen Width is: " + window.screen.width + " pixels");
+        console.log("Screen Height is: " + window.screen.height + " pixels");
+        console.log("Available Screen Width is: " + window.screen.availWidth + " pixels");
+        console.log("Available Screen Height is: " + window.screen.availHeight + " pixels");
+        console.log("Window Inner Width is: " + window.innerWidth + " pixels");
+        console.log("Window Inner Height is: " + window.innerHeight + " pixels");
+        console.log("Window Outer Width is: " + window.outerWidth + " pixels");
+        console.log("Window Outer Height is: " + window.outerHeight + " pixels");
+        // Console Log Examples of Document Object Methods
+        console.log("Page Title is: " + document.title);
+        console.log("Page Last Modified on: " + document.lastModified);
+        console.log("Page URL is: " + document.URL);
+        console.log("Page Body Language is: " + document.body.lang);
+        console.log("Page Body Background Color is: " + document.body.bgColor);
+        console.log("Page Body Text Color is: " + document.body.text);
+        console.log("Page Body Link Color is: " + document.body.link);
+        console.log("Page Body VLink Color is: " + document.body.vLink);
+        console.log("Page Body ALink Color is: " + document.body.aLink);
+        console.log("Number of Forms in Document: " + document.forms.length);
+        console.log("Number of Links in Document: " + document.links.length);
+        console.log("Number of Images in Document: " + document.images.length);
+        // Console Log Examples of Date Object Methods
+        console.log("Current Time is: " + new Date().toLocaleTimeString());
+        console.log("Current Date is: " + new Date().toLocaleDateString());
+        console.log("Current Date and Time is: " + new Date().toLocaleString());
+        console.log("Current Year is: " + new Date().getFullYear());
+        console.log("Current Month is: " + new Date().getMonth()); // Months are zero-based
+        console.log("Current Day is: " + new Date().getDate());
+        console.log("Current Day of the Week is: " + new Date().getDay());
+        console.log("Current Hour is: " + new Date().getHours());
+        console.log("Current Minute is: " + new Date().getMinutes());
+        console.log("Current Second is: " + new Date().getSeconds());
+        console.log("Current Milliseconds is: " + new Date().getMilliseconds());
+    </script>
+</body>
+</html>

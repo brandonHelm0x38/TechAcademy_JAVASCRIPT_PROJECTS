@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 2: Contact Form</title>
+    <!-- MATERIALIZE Framework by Google - Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- My custom styles sheet -->
+    <link rel="stylesheet" href="css/validate.css">
+    <!-- My JavaScript file -->
+    <script src="js/validate.js" defer></script>
+</head>
+<body>
+    <!-- MAIN PAGE TITLE -->
+    <h1>Advanced JavaScript Projects - Project 2: Contact Form</h1>
+    <!-- Contact Form -->
+    <div class="form-container">
+        <h5>Subscribe to our Newsletter!</h5>
+        <form id="Email_Form" action="#">
+            <div class="input-container">
+                <label for="Full_Name">Full Name:</label><br>
+                <input type="text" id="Full_Name" placeholder="Enter your full name..." required>
+            </div>
+            <div class="input-container">
+                <label for="Company">Company: <small>(Optional)</small></label><br>
+                <input type="text" id="Company" placeholder="Enter your company...">
+            </div>
+            <div class="input-container">
+                <label for="Role_Title">Role/Title: <small>(Optional)</small></label><br>
+                <input type="text" id="Role_Title" placeholder="Enter your role or title...">
+            </div>
+            <div class="input-container">
+                <label for="Email">Email:</label><br>
+                <input type="email" id="Email" placeholder="Enter your email..." required>
+            </div>
+            <div class="input-container">
+                <label for="Phone">Phone Number: <small>(Optional)</small></label><br>
+                <input type="text" id="Phone" placeholder="Enter your phone number...">
+            </div>
+            <div class="input-container">
+                <label for="Zip_Code">Zip Code: <small>(Optional)</small></label><br>
+                <input type="text" id="Zip_Code" placeholder="Enter your zip code...">
+            </div>
+            <div class="input-container">
+                <label for="Password">Password:</label><br>
+                <input type="password" id="Password" placeholder="Enter your password..." required>
+            </div>
+            <div class="input-container">
+                <label for="Confirm_Password">Confirm Password:</label><br>
+                <input type="password" id="Confirm_Password" placeholder="Confirm your password..." required>
+            </div>
+            <div class="input-container">
+                <label for="Message">Message: <small>(Optional)</small></label><br>
+                <textarea id="Message" placeholder="Enter your message..." rows="6" cols="50"></textarea><br><br>
+            </div>
+            <button type="submit" class="btn waves-effect waves-light" id="Submit_Btn" onclick="validateForm()">Subscribe</button>
+        </form>
+    </div>
+</body>
+</html>
