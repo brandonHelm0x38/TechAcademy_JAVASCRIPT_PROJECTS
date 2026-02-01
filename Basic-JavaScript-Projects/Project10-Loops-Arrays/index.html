@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 10 Loops and Arrays</title>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <!-- MAIN PAGE TITLE; (Will be displayed after Javascript document.write script text) -->
+    <h1>Basic JavaScript Projects - Project 10: Loops and Arrays</h1>
+    <!-- Button to call a simple for loop result -->
+    <div>
+        <h3>Loop to add 2 to itself 4 times...</h3>
+        <button onclick="callForLoop1()">Click here to run loop</button>
+        <p id="For_Loop_Result_Text1"></p>
+    </div>
+    <!-- Button to call a simple while loop result -->
+    <div>
+        <h3>Loop starts with (X = 50), and runs while (X &lt; 200); Adding 10 each iteration...</h3>
+        <button onclick="callWhileLoop1()">Click here to run loop</button>
+        <p id="While_Loop_Result_Text1"></p>
+    </div>
+    <!-- Simple output of string length function -->
+    <div>
+        <h3>String Length Function Example...</h3>
+        <p>The length of the string "Hello, World!" is: <span id="String_Length_Result_Text"></span></p>
+        <script>
+            var str = "Hello, World!";
+            document.getElementById("String_Length_Result_Text").innerHTML = str.length;
+        </script>
+    </div>
+    <!-- Button to iterate through a list and output all elements -->
+    <div>
+        <h3>Iterate through an array of instruments and display each one...</h3>
+        <button onclick="arrayLoopFunction()">Click here to display instrument list</button>
+        <p id="Array_Loop_Result_Text"></p>
+    </div>
+    <!-- Button which cycles through an array with each click and displays the current element -->
+    <div>
+        <h3>Click the button to cycle through an array of fruits...</h3>
+        <button onclick="cycleThroughFruits()">Next Fruit</button>
+        <p id="Fruit_Cycle_Result_Text"></p>
+    </div>
+    <!-- Function which utilizes a const definition -->
+    <div>
+        <h3>Click the button to see a constant value returned...</h3>
+        <button onclick="constantFunction()">Return Constant</button>
+        <p id="Constant_Return_Text"></p>
+    </div>
+    <!-- Let keyword example with block scope; Notice that let is block-scoped -->
+    <div>
+        <h3>Click the button to see let keyword block scope example...</h3>
+        <button onclick="letFunction()">Return Let</button>
+        <p id="Let_Return_Text"></p>
+    </div>
+    <!-- Var keyword example with block scope; Notice that var redeclares the variable within the same function scope -->
+    <div>
+        <h3>Click the button to see var keyword block scope example...</h3>
+        <button onclick="varFunction()">Return Var</button>
+        <p id="Var_Return_Text"></p>
+    </div>
+    <!-- Return statement example; A different way of implementation of the button which displays the below text -->
+    <div>
+        <h3>Click the button to see return statement example...</h3>
+        <button onclick="document.getElementById('Return_Function_Result_Text').innerHTML = returnFunctionResult(5, 7);">Return Function Result</button>
+        <p id="Return_Function_Result_Text"></p>
+    </div>
+    <!-- Constructor function example -->
+    <div>
+        <h3>Click the button to see constructor function example...</h3>
+        <button onclick="simpleConstructorFunction()">Show Car Description</button>
+        <p id="Constructor_Return_Text"></p>
+    </div>
+    <!-- Break statement example -->
+    <div>
+        <h3>Click the button to see break statement example...</h3>
+        <button onclick="breakFunction()">Show Break Example</button>
+        <p id="Break_Return_Text"></p>
+    </div>
+    <!-- Continue statement example -->
+    <div>
+        <h3>Click the button to see continue statement example...</h3>
+        <button onclick="continueFunction()">Show Continue Example</button>
+        <p id="Continue_Return_Text"></p>
+    </div>
+</body>
+</html>

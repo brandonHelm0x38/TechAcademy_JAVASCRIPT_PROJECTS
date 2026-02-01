@@ -33,3 +33,63 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+// Return statement example; A different way of implementation of the button which displays the below text
+function returnFunctionResult(arg1, arg2) {
+    let result = arg1 * arg2;
+    return result;
+}
+
+// Let keyword example with block scope; 
+function letFunction() {
+    let X = 10;
+    {
+        let X = 20;
+        document.getElementById("Let_Return_Text").innerHTML = "The value of X inside the block is: " + X;
+    }
+    document.getElementById("Let_Return_Text").innerHTML += "<br>The value of X outside the block is: " + X;
+}
+
+// Var keyword example with block scope; 
+function varFunction() {
+    var X = 10;
+    {
+        var X = 20;
+        document.getElementById("Var_Return_Text").innerHTML = "The value of X inside the block is: " + X;
+    }
+    document.getElementById("Var_Return_Text").innerHTML += "<br>The value of X outside the block is: " + X;
+}
+
+// Utilizing let keyword with an object, as well as a method within the object to create the description of the car
+function simpleConstructorFunction() {
+    let car = {
+    make: "Dodge ",
+    model: "Viper",
+    year: "2021 ",
+    color: "red ",
+    description : function() {
+        return "The car is a " + this.year + this.color + this.make + this.model;
+        }
+    }
+    document.getElementById("Constructor_Return_Text").innerHTML = car.description();
+}
+
+// Break statement example within a loop
+function breakFunction() {
+    let text = "";
+    for (let i = 0; i < 10; i++) {
+        if (i === 5) { break; }
+        text += "The number is " + i + "<br>";
+    }
+    document.getElementById("Break_Return_Text").innerHTML = text;
+}
+
+// Continue statement example within a loop
+function continueFunction() {
+    let text = "";
+    for (let i = 0; i < 10; i++) {
+        if (i === 5) { continue; }  // Skip the iteration when i is 5
+        text += "The number is " + i + "<br>";
+    }
+    document.getElementById("Continue_Return_Text").innerHTML = text;
+}

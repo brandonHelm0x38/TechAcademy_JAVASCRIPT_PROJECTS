@@ -33,9 +33,45 @@
     </div>
     <!-- FIFTH DEMO BUTTON; Button with event handler style implementation -->
      <div>
-        <h3>The addEventListener() Method; I can't get working...</h3>
+        <h3>The addEventListener() Method; Different Button Implementation</h3>
         <button id="myBtn">Time is?</button>
         <p id="demo"></p>
+    </div>
+    <!-- Return statement example; A different way of implementation of the button which displays the below text -->
+    <div>
+        <h3>Click the button to see return statement example...</h3>
+        <button onclick="document.getElementById('Return_Function_Result_Text').innerHTML = returnFunctionResult(5, 7);">Return Function Result</button>
+        <p id="Return_Function_Result_Text"></p>
+    </div>
+    <!-- Let keyword example with block scope; Notice that let is block-scoped -->
+    <div>
+        <h3>Click the button to see let keyword block scope example...</h3>
+        <button onclick="letFunction()">Return Let</button>
+        <p id="Let_Return_Text"></p>
+    </div>
+    <!-- Var keyword example with block scope; Notice that var redeclares the variable within the same function scope -->
+    <div>
+        <h3>Click the button to see var keyword block scope example...</h3>
+        <button onclick="varFunction()">Return Var</button>
+        <p id="Var_Return_Text"></p>
+    </div>
+    <!-- Constructor function example -->
+    <div>
+        <h3>Click the button to see constructor function example...</h3>
+        <button onclick="simpleConstructorFunction()">Show Car Description</button>
+        <p id="Constructor_Return_Text"></p>
+    </div>
+    <!-- Break statement example -->
+    <div>
+        <h3>Click the button to see break statement example...</h3>
+        <button onclick="breakFunction()">Show Break Example</button>
+        <p id="Break_Return_Text"></p>
+    </div>
+    <!-- Continue statement example -->
+    <div>
+        <h3>Click the button to see continue statement example...</h3>
+        <button onclick="continueFunction()">Show Continue Example</button>
+        <p id="Continue_Return_Text"></p>
     </div>
 </body>
 </html>

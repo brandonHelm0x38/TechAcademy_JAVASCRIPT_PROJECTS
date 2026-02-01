@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using the Console to Debug Code</title>
+</head>
+<body onload="pageLoad()">
+    <div>
+        <h1>Basic JavaScript Projects - Project 11: Using the Console to Debug Code</h1>
+        <h3>Click the button to increment the counter. Use the reset button to set it back to zero.</h3>
+        <button onclick="clickCounter()">Click Me!</button>
+        <button onclick="resetCounter()">Reset Counter</button>
+        <p id="clickCounter">Button clicked 0 times.</p>
+    </div>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <script>
+        // Creates a greeting when the page first loads
+        function pageLoad() {
+            var greeting = "Welcome to the Debugging Code Project!";
+            window.alert(greeting); // Logs the greeting to the console
+        }
+
+        var count = 0;
+
+        function clickCounter() {
+            count++;
+            document.getElementById("clickCounter").innerHTML = "Button clicked " + count + " times.";
+        }
+
+        function resetCounter() {
+            count = 0;
+            document.getElementById("clickCounter").innerHTML = "Button clicked " + count + " times.";
+        }
+
+        A = "Always ";
+        B = "remember ";
+        document.write(A + B);
+        X = "you ";
+        Y = "are ";
+        document.write(X + Y);
+        M = "unique ";
+        N = "just like everyone else.";
+        document.write(M + N);
+    </script>
+</body>
+</html>

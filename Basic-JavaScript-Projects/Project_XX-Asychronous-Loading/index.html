@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 10 - Asynchronous Loading</title>
+</head>
+<body>
+    <script src="js/async.js" defer></script> <!-- To asynchronously load the JavaScript file means it will be fetched in parallel to parsing the HTML and will be executed as soon as it is available. -->
+    <!-- <script src="defer1.js" defer></script> To defer loading the JavaScript file means it will be fetched in parallel to parsing the HTML but will only be executed after the HTML parsing is complete. -->
+    <!-- <script src="defer2.js" defer></script> Multiple deferred scripts will execute in the order they appear in the document. -->
+    <div>
+        <h1>Basic JavaScript Projects - Project 10: Asynchronous Loading</h1>
+        <p id="p1">Hello World</p>
+        <p>This project demonstrates asynchronous loading of JavaScript files. The script is loaded in parallel with the HTML parsing, allowing for faster page load times and improved performance.</p>
+        <p>Asynchronous loading is particularly useful for large scripts or when multiple scripts are being loaded, as it prevents blocking the rendering of the page.</p>
+        <p>In this example, the script "async.js" is loaded asynchronously, meaning it does not block the HTML parsing and will execute as soon as it is downloaded.</p>
+        <p>The scripts "defer1.js" and "defer2.js" are loaded with the "defer" attribute, meaning they will only execute after the HTML parsing is complete. This ensures that the DOM is fully constructed before the scripts run.</p>
+        <p>Deferred scripts will be loaded and executed in the order they appear in the document.</p>
+        <p>Asynchronous and deferred loading can significantly improve the user experience by reducing the time it takes for the page to become interactive.</p>
+        <p>Note the document.write() method will not work when scripts are loaded asynchronously or deferred.</p>
+    </div>
+</body>
+</html>
