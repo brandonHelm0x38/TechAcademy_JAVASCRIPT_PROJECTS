@@ -1,0 +1,130 @@
+:root {
+    --bg-color: #1a1a1a;
+    --menu-bg-color: #2d2d2d;
+    --menu-item-bg-color: #3a3a3a;
+    --primary-accent-color: #ff6b35;
+    --secondary-accent-color: #4ecdc4;
+    --text-color: #e0e0e0;
+    --border-color: #444;
+    --highlight-color: #ff8555;
+}
+
+/* Dark theme color palette */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#menuBG {
+    background-color: var(--menu-bg-color);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    max-width: 900px;
+    width: 90%;
+}
+
+h1 {
+    color: var(--primary-accent-color);
+    text-align: center;
+    margin: 0 0 20px 0 !important;
+}
+
+h3 {
+    color: var(--primary-accent-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+#formMenu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu {
+    background-color: var(--menu-item-bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 250px;
+}
+
+.menu.left {
+    border-left: 4px solid var(--primary-accent-color);
+}
+
+.menu.right {
+    border-left: 4px solid var(--secondary-accent-color);
+}
+
+label {
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+label:hover {
+    color: var(--primary-accent-color);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    cursor: pointer;
+    accent-color: var(--primary-accent-color);
+}
+
+#btnOrder {
+    background-color: var(--primary-accent-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto 20px auto;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#btnOrder:hover {
+    background-color: var(--highlight-color);
+    transform: scale(1.05);
+}
+
+#btnOrder:active {
+    transform: scale(0.98);
+}
+
+#cart {
+    background-color: var(--menu-item-bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid var(--secondary-accent-color);
+    width: 100%;
+    margin-top: 20px;
+}
+
+#orderSummary {
+    background-color: var(--menu-bg-color);
+    padding: 15px;
+    border-radius: 5px;
+    min-height: 50px;
+    margin-bottom: 15px;
+    color: #b0b0b0;
+}
+
+#totalPrice {
+    color: var(--secondary-accent-color);
+    font-weight: bold;
+    font-size: 1.2em;
+}
