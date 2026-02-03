@@ -118,20 +118,12 @@ function createTextTexture(gl, text, options = {}) {
     y += lineHeight;
   }
 
-  // Flip the canvas vertically before uploading to WebGL
-  const flippedCanvas = document.createElement('canvas');
-  flippedCanvas.width = size;
-  flippedCanvas.height = size;
-  const flippedCtx = flippedCanvas.getContext('2d');
-  flippedCtx.translate(0, size);
-  flippedCtx.scale(1, -1);
-  flippedCtx.drawImage(canvas, 0, 0);
-
-  // Create WebGL texture
+  // Create WebGL texture (explicitly flip unpack so draw order is consistent)
   const texture = gl.createTexture();
   gl.bindTexture(gl.TEXTURE_2D, texture);
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
   gl.texImage2D(
-    gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, flippedCanvas
+    gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, canvas
   );
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
@@ -172,12 +164,15 @@ const cubes = [
     translation: [ 5, 3, 0], 
     color: [.5, .5, .5, 1.0], 
     category: '5-Physics > Article' },
-  // 6th cube: no texture, category 'Digital Logic', translation [-5, 3, 0]
   {
     translation: [-5, 3, 0],
     color: [1.0, 0.647, 0.0, 1.0],
-    category: '6-Digital Logic Long Subject Test'
-  },
+    category: '6-Digital Logic Long Subject Test' },
+  {
+    texture: loadTexture(gl, 'images/uploaded/SP_logo.PNG'), 
+    translation: [-5, -3, 0],
+    color: [1.0, 1.0, 1.0, 1.0],
+    category: 'Strategic Pivot' },
 ];
 // =============================================================================================
 // =============================================================================================
@@ -645,7 +640,8 @@ function init() {
     [cubes[4].translation, cubes[5].translation],
     [cubes[1].translation, cubes[2].translation],
     [cubes[1].translation, cubes[0].translation],
-    [cubes[3].translation, cubes[6].translation]
+    [cubes[3].translation, cubes[6].translation],
+    [cubes[0].translation, cubes[7].translation]
   ]);
   // =============================================================================================
   // =============================================================================================
