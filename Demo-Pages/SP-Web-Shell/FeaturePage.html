@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Pivot</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/feature-page.css">
+    <!-- Custom JavaScript -->
+    <script src="js/feature-page.js" defer></script>
+</head>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<body>
+    <!-- HEADER SECTION -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ============================================================================================= -->
+    <header>
+        <img src="images/main-icons/SP_Logo_WhiteSquareBG.png" alt="Strategic Pivot Logo" class="logo">
+        <h1>Welcome to Strategic Pivot</h1>
+    </header>
+
+    <!-- The Central section is composed of two main parts: the feature section on the left and the WebGL aside on the right -->
+    <!-- These elements are made hidden and visible by controlling the following IDs: -->
+    <!-- feature-section-navs-docked : webGL-aside-docked : linked-content-nav-docked ~~> Toggle in sets -->
+    <!-- feature-section-navs-opened : webGL-aside-opened : linked-content-nav-opened ~~> Toggle in sets -->
+    <!-- DESIGN NOTE: The page will open with feature-section-navs-docked, webGL-aside-docked, and linked-content-nav-docked visible, then after 3 seconds automatically toggle to the opened state -->
+
+    <!-- Div to flex content side by side -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div style="display: flex;">
+        <!-- FEATURE 1/4 -> LEFT SECTION; ALWAYS VISIBLE BUT CHANGES SIZES -> SIDE-NAV CLOSED VIEW / LARGER -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- ============================================================================================= -->
+        <div id="feature-section-navs-docked">
+
+        </div>
+
+        <!-- FEATURE DEFAULT 2/4 -> LEFT SECTION; ALWAYS VISIBLE BUT CHANGES SIZES -> SIDE-NAV OPEN VIEW / SMALLER -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- ============================================================================================= -->
+        <div id="feature-section-navs-opened">
+
+        </div>
+
+        <!-- FEATURE ASIDE 3/4 -> RIGHT SECTION; HIDES WITH BOTTOM -> SIDE-NAV CLOSED VIEW -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- ============================================================================================= -->
+        <div id="webGL-aside-docked">
+            <div class="DCKhlhtSqr" style="top: -3.3vh; left: 1.4vw; border-bottom: .6vh solid var(--accent3); border-right: .5vw solid var(--accent3);">
+                <div class="unpDCKcurveUPaway"></div>
+            </div>
+
+            <div class="unpDCKpicPane">
+                <div class="DCKpicSweep">
+                    <div class="unpDCKpic" style="background-image: url('../images/userProfile/ResumePic.jpg');"></div>
+                </div>
+            </div>
+
+            <div class="DCKhlhtSqr" style="top: 54.1vh; left: 1.4vw; border-top: .6vh solid var(--accent3); border-right: .5vw solid var(--accent3);">
+                <div class="unpDCKcurveDWNaway"></div>
+            </div>
+        </div>
+
+        <!-- FEATURE DEFAULT ASIDE 4/4 -> RIGHT SECTION; HIDES WITH BOTTOM -> SIDE-NAV OPEN VIEW -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- ============================================================================================= -->
+        <div id="webGL-aside-opened">
+
+        </div>
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div> <!-- Div to flex content side by side -->
+
+    <!-- FEATURE FOOTER 1/2 -> BOTTOM SECTION; HIDES WITH SIDE-NAV -> SIDE-NAV CLOSED VIEW -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ============================================================================================= -->
+    <div id="linked-content-nav-docked">
+        <div class="footerPane_DCK">
+
+            <div class="DCKhlhtSqr" style="top: 3.1vh; left: -1.85vw; border-bottom: .6vh solid var(--accent3); border-right: .5vw solid var(--accent3);">
+                <div class="ftrDCKcurveLFTaway"></div>
+            </div>
+
+            <div class="ftrDCKpicPane">
+                <div class="ftrPicSweep">
+                </div>
+                <div class="ftrDCKpic" style="background-image: url('../images/SPlogos/SPlogoOutline_WwhtBGlttrs.png'); left: 1.7vw;"></div>
+            </div>
+
+            <div class="DCKhlhtSqr" style="top: 3.1vh; left: 85.25vw; border-left: .4vw solid var(--accent3);">
+                <div class="ftrDCKcurveRHTaway"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FEATURE DEFAULT FOOTER 2/2 -> BOTTOM SECTION; HIDES WITH SIDE-NAV -> SIDE-NAV OPEN VIEW -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ============================================================================================= -->
+    <div id="linked-content-nav-opened">
+        <div class="lc-nav-left">
+
+        </div>
+        <div class="lc-nav-right">
+
+        </div>
+        <div class="lc-nav-close-btn" onclick="toggleFeaturePageNavs()">
+            <p>C<br>L<br>O<br>S<br>E</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

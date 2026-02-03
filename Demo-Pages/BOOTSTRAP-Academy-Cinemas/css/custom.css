@@ -281,3 +281,18 @@ footer {
     width: auto;
     height: 130px;
 }
+
+/* POPOVERS */
+.star-rating {
+    width: 80%;
+}
+
+/* TOAST --> Comment this out to display basic message on bottom left corner */
+.custom-toast {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    min-width: 250px;
+    z-index: 1055; /* Ensures the toast appears above other elements */
+}

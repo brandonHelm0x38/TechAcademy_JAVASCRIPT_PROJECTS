@@ -1,0 +1,265 @@
+:root {
+    --transition-bg-color1: #10303e;  /* Dark Blue */
+    --transition-bg-color2: #4b8b7b; /* Teal Blue-Green */
+
+    --lghtBrdr: rgb(241, 227, 164); /* rgb(241,227,164)  --> Light Tan */
+    --darkBrdr: #E7CD78;            /* #E7CD78;  --> Mid Gold */
+
+    --bttnTextClr: rgb(16,48,62);   /* DarkBlue matching Inner Header & Knowledge Web/Tree Background */
+    --bttnBkGrnd: #FCFBFC;
+    --ScrlBttnBkGrnd: antiquewhite;
+    --bttnTriangleClr: #404040;     /* Dark Grey */
+    --hoverClr: #DAA520;            /* #DAA520;  --> Deep/Dark Gold */
+
+    --ftPanesBkGrnd: antiquewhite;        
+    --usrPanesBkGrnd: #FCFBFC;          /* #FCFBFC  --> Frost (light-blue) */
+    --hScrlPanesBkGrnd: #FCFBFC;        /* #FCFBFC  --> Frost (light-blue) */
+
+    --accent1: rgb(14,64,66);           /* Main Outer Background; Slightly lighter/greener than Nav Backgrounds */
+    --accent2: rgb(50,103,101);         /* Scrollbar BackGround */
+    --accent3: rgb(16,48,62);           /* Dark Blue in KWT queryNav & FeaturePage Internal Header Background */
+
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--accent1);
+    font-family: var(--font-family);
+    overflow: hidden;
+}
+
+.popOut {
+    display: none;
+}
+
+/* HEADER SECTION */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ============================================================================================= */
+header {
+    background-image: linear-gradient(0.25turn, var(--transition-bg-color1), var(--transition-bg-color2), var(--transition-bg-color1));
+    color: white;
+    height: 10vh;
+    margin: .5vh .1vw 1vh .1vw;
+    font-family: var(--font-family);
+    border: 3px solid var(--darkBrdr);
+    border-radius: 8px;
+    display: flex;
+}
+
+.header h1 {
+    margin: 0;
+    padding: 0.5vh 1vw 0vh 1vw;
+    font-size: 2.5vh;
+}
+
+
+/* FEATURE DEFAULT --> LEFT SECTION; ALWAYS VISIBLE BUT CHANGES SIZES --> SIDE-NAV OPEN VIEW / SMALLER */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ============================================================================================= */
+#feature-section-navs-opened {
+    display: none;
+    width: 77vw;
+    height: 62vh;
+    border: 3px solid var(--darkBrdr);
+    border-radius: 8px;
+}
+
+
+/* FEATURE --> LEFT SECTION; ALWAYS VISIBLE BUT CHANGES SIZES --> SIDE-NAV CLOSED VIEW / LARGER */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ============================================================================================= */
+#feature-section-navs-docked {
+    width: 94.1vw;
+    height: 78vh;
+    border: 3px solid var(--darkBrdr);
+    border-radius: 8px;
+}
+
+
+/* FEATURE DEFAULT ASIDE --> RIGHT SECTION; HIDES WITH BOTTOM --> SIDE-NAV OPEN VIEW */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ============================================================================================= */
+#webGL-aside-opened {
+    display: none;
+    margin-left: .5vw;
+    width: 21vw;
+    height: 62vh;
+    border: 3px solid var(--darkBrdr);
+    border-radius: 8px;
+}
+
+
+/* FEATURE ASIDE --> RIGHT SECTION; HIDES WITH BOTTOM --> SIDE-NAV CLOSED VIEW */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ============================================================================================= */
+#webGL-aside-docked {
+    cursor: grab;
+    z-index: 100;
+    position: relative;
+    top: 3vh;
+    left: 2vw;
+    border-style: solid;
+    border-color: var(--darkBrdr);
+    border-width: .4vh .2vw .4vh .2vw;
+    border-radius: 100% -0% -0% 100%;
+    background-color: var(--accent3);
+    height: 70.3vh;
+    width: 3vw; }
+    .DCKhlhtSqr {
+        z-index: 104;
+        position: relative;
+        background-color: var(--accent3);
+        height: 3vh;
+        width: 1.5vw; }
+        .unpDCKcurveUPaway {
+            z-index: 105;
+            position: relative;
+            border-radius: 0vh 0vh 100% 0vh;
+            border-right: .2vw solid var(--darkBrdr);
+            border-bottom: .4vh solid var(--darkBrdr);
+            background-color: var(--accent1);
+            height: 3vh;
+            width: 1.5vw; }
+        .unpDCKcurveDWNaway {
+            z-index: 105;
+            position: relative;
+            border-radius: 0vh 100% 0vh 0vh;
+            border-right: .2vw solid var(--darkBrdr);
+            border-top: .4vh solid var(--darkBrdr);
+            background-color: var(--accent1);
+            height: 3vh;
+            width: 1.5vw; }
+    .unpDCKpicPane {
+        z-index: 101;
+        position: relative;
+        top: 24vh;
+        left: -1vw;
+        background-color: var(--accent3);
+        border-radius: 40% -0% -0% 40%;
+        height: 12vh;
+        width: 4vw; }
+        .DCKpicSweep {
+            z-index: 102;
+            position: relative;
+            left: -.3vw;
+            border-style: solid;
+            border-color: var(--darkBrdr) transparent var(--darkBrdr) var(--darkBrdr);
+            border-width: .4vh .2vw .4vh .2vw;
+            border-radius: 40% -0% -0% 40%;
+            background-color: var(--accent3);
+            width: 1vw;
+            height: 11.4vh; }
+            .unpDCKpic {
+                z-index: 103;
+                position: relative;
+                top: .9vh;
+                left: .4vw;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                border-radius: 1vh;
+                height: 9.4vh;
+                width: 3.4vw; }
+
+
+/* FEATURE DEFAULT FOOTER --> BOTTOM SECTION; HIDES WITH SIDE-NAV --> SIDE-NAV OPEN VIEW */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ============================================================================================= */
+#linked-content-nav-opened {
+    display: none;
+    margin-top: 1vh;
+    width: 99.7%;
+    height: 22vh;
+    border: 3px solid var(--darkBrdr);
+    border-radius: 8px; }
+    .lc-nav-left {
+        width: 78.65%;
+        height: 100%;
+        border-right: 3px solid var(--darkBrdr); }
+    .lc-nav-right {
+        width: 18vw;
+        height: 100%;
+        background-color: var(--accent3);
+        border-right: 3px solid var(--darkBrdr); }
+    .lc-nav-close-btn {
+        color: white;
+        font-size: 2vh;
+        padding: 1vh 1vw 0vh 1vw;
+        cursor: pointer;
+        background-color: var(--accent3);
+    }
+
+
+
+/* FEATURE FOOTER --> BOTTOM SECTION; HIDES WITH SIDE-NAV --> SIDE-NAV CLOSED VIEW */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ============================================================================================= */
+#linked-content-nav-docked {
+    margin-top: 1.2vh;
+    position: relative;
+    top: 0vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 7.6vh;
+    width: 100vw; }
+    .footerPane_DCK {
+        display: flex;
+        position: relative;
+        top: 1.3vh;
+        left: 2.5vw;
+        border-style: solid;
+        border-color: var(--darkBrdr);
+        border-width: .4vh .4vw .4vh .4vw;
+        border-radius: 100% 100% 0 0;
+        background-color: var(--accent3);
+        height: 6vh;
+        width: 94.5vw; }
+        .ftrDCKcurveLFTaway {
+            z-index: 105;
+            position: relative;
+            border-radius: 0vh 0vh 100% 0vh;
+            border-right: .2vw solid var(--darkBrdr);
+            border-bottom: .4vh solid var(--darkBrdr);
+            background-color: var(--accent1);
+            height: 3vh;
+            width: 1.5vw; }
+        .ftrDCKcurveRHTaway {
+            z-index: 105;
+            position: relative;
+            border-radius: 0vh 0vh 0vh 100%;
+            border-left: .2vw solid var(--darkBrdr);
+            border-bottom: .4vh solid var(--darkBrdr);
+            background-color: var(--accent1);
+            height: 3vh;
+            width: 1.5vw; }
+        .ftrDCKpicPane {
+            z-index: 101;
+            position: relative;
+            top: -1.5vh;
+            left: 41.8vw;
+            background-color: var(--accent3);
+            border-radius: 25% 25% 0% 0%;
+            height: 7.2vh;
+            width: 7.1vw; }
+            .ftrPicSweep {
+                z-index: 102;
+                position: relative;
+                border-style: solid;
+                border-color: var(--darkBrdr) var(--darkBrdr) transparent var(--darkBrdr);
+                border-width: .4vh .2vw .4vh .2vw;
+                border-radius: 40% 40% 0% 0%;
+                background-color: var(--accent3);
+                width: 6.8vw;
+                height: 1vh; }
+                .ftrDCKpic {
+                    z-index: 103;
+                    position: relative;
+                    top: -1vh;
+                    left: .4vw;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    border-radius: 1vh;
+                    height: 6.8vh;
+                    width: 3.2vw; }
+
