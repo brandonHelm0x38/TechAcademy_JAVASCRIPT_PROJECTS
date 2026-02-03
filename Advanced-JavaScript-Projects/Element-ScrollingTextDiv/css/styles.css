@@ -1,0 +1,26 @@
+.marquee-container {
+    width: 500px; /* Set the width of the scrolling area */
+    height: 20px; /* Set the height of the scrolling area */
+    overflow: hidden; /* Hides text outside the box */
+    background: #333;
+    color: white;
+    padding: 10px 0;
+    border: 1px solid #444;
+}
+
+.marquee-content {
+    display: inline-block;
+    white-space: nowrap; /* Keeps text in one long line */
+    padding-left: 100%;  /* Starts text off-screen to the right */
+    animation: marquee-scroll 20s linear infinite; /* Loops forever */
+}
+
+@keyframes marquee-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); } /* Moves text off-screen to the left */
+}
+
+/* Optional: Pause on hover */
+.marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+}

@@ -1,0 +1,49 @@
+:root {
+    --main-bg: mintcream;
+    --form-bg: #13232f;
+    --form-text: #ffffff;
+    --form-placeholder: grey;
+    --form-invalid: #ff6b6b;
+    --form-valid: #1dd1a1;   
+}
+
+body {
+    background-color: var(--main-bg);
+}
+
+form {
+    background-color: var(--form-bg);
+    width: 600px;;
+    margin: 5rem auto;
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 1px 19px 2px rgba(0, 0, 0, 0.5);
+}
+
+label {
+    color: var(--form-text);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0 1rem 0;
+    border: none;
+    border-radius: 3px;
+    font-size: 1rem;
+    color: var(--form-text)
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--form-placeholder);
+}
+
+input.Not_Valid {
+    color: var(--form-invalid) !important;
+    border-bottom: 1px solid var(--form-invalid) !important
+}
+
+input.Valid {
+    color: var(--form-valid) !important;
+    border-bottom: 1px solid var(--form-valid) !important
+}

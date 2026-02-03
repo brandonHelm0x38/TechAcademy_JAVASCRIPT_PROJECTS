@@ -1,0 +1,16 @@
+.expandable-container {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    width: 300px;
+}
+.expand-header {
+    background: #f4f4f4;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.expand-content {
+    display: none; /* Crucial for slideToggle to work */
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}

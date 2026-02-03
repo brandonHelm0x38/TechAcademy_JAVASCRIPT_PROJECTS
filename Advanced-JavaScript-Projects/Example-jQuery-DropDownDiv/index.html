@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Example 2</title>
+    <!-- 1. Include the jQuery library from a CDN -->
+    <!-- <script src="https://ajax.googleapis.com"></script> DOESN'T WORK -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> Only works on Chrome -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="expandable-container">
+        <div class="expand-header">
+            Click to See More Details
+            <span class="icon">+</span>
+        </div>
+        <div class="expand-content">
+            <p>This content is hidden by default. When it expands, the text below it will be pushed down dynamically.</p>
+            <ul>
+                <li>Dynamic height adjustment</li>
+                <li>Smooth sliding animation</li>
+                <li>Automatic page reflow</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-content">
+        <p>I am the rest of the page. I move when the section above me expands!</p>
+    </div>
+
+</body>
+</html>
+    <script>
+        $(document).ready(function(){
+            $(".expand-header").click(function(){
+                // slideToggle adjusts the height and pushes other elements down
+                $(this).next(".expand-content").slideToggle("slow");
+                
+                // Optional: Toggle the "+" and "-" icon
+                let icon = $(this).find(".icon");
+                icon.text(icon.text() == "+" ? "-" : "+");
+            });
+        });
+    </script>

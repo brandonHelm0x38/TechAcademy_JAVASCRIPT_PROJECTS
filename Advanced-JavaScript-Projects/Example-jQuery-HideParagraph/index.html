@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Example</title>
+    <!-- 1. Include the jQuery library from a CDN -->
+    <!-- <script src="https://ajax.googleapis.com"></script> DOESN'T WORK -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script> Only works on Chrome -->
+    <script>
+        // 2. Wait for the document to be fully loaded
+        $(document).ready(function(){
+            // 3. Select the button element and handle the click event
+            $("#hideButton").click(function(){
+                // 4. Select the paragraph element and call the hide() method
+                $("p").hide();
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <h2>This is a Heading</h2>
+    <p>This is a paragraph that will be hidden.</p>
+    <button id="hideButton">Click to Hide the Paragraph</button>
+
+</body>
+</html>
