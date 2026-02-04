@@ -34,6 +34,15 @@ body {
     height: 100px;
 }
 
+.navbar.nav-shrink {
+    height: 80px;
+    transition: 0.5s ease;
+}
+
+.navbar-collapse {
+    transition: margin-top 0.5s ease;
+}
+
 /* Specifically styles the Navbar title/brand */
 .navbar-brand {
     color: var(--main-color-accent);

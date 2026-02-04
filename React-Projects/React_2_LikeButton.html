@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Example 2</title>
+    <!-- REACT LIBRARY CDN DEVELOPMENT -->
+    <script src="https://fb.me/react-0.14.3.js"></script>
+    <script src="https://fb.me/react-dom-0.14.3.js"></script>
+    <!-- REACT LIBRARY CDN PRODUCTION -->
+    <!-- <script src="https://fb.me/react-0.14.3.min.js"></script>
+    <script src="https://fb.me/react-dom-0.14.3.min.js"></script> -->
+    <!-- REACT LIBRARY DOWNLOADED VERSION -->
+    <!-- <script src="react-0.14.3/react.min.js" crossorigin></script>
+    <script src="react-0.14.3/react-dom.min.js" crossorigin></script> -->
+</head>
+<body>
+    <h1>React Example 2</h1>
+    <div id="like-button-container"></div>
+    <script>
+        const x = React.createElement;
+
+        class LikeButton extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { liked: false, showPopup: false };
+                this.handleMouseEnter = this.handleMouseEnter.bind(this);
+                this.handleMouseLeave = this.handleMouseLeave.bind(this);
+            }
+
+            handleMouseEnter() {
+                this.setState({ showPopup: true });
+            }
+
+            handleMouseLeave() {
+                this.setState({ showPopup: false });
+            }
+
+            render() {
+                return x(
+                    'div',
+                    { style: { display: 'inline-block', position: 'relative' } },
+                    [
+                        this.state.liked
+                            ? x('span', { style: { marginRight: '10px' } }, 'You liked this.')
+                            : null,
+                        x(
+                            'button',
+                            {
+                                onClick: () => this.setState((state) => ({ liked: !state.liked })),
+                                onMouseEnter: this.handleMouseEnter,
+                                onMouseLeave: this.handleMouseLeave
+                            },
+                            this.state.liked ? 'Unlike' : 'Like'
+                        ),
+                        this.state.showPopup && x(
+                            'div',
+                            {
+                                style: {
+                                    position: 'absolute',
+                                    top: '50%',
+                                    left: '110%',
+                                    transform: 'translateY(-50%)',
+                                    background: '#222',
+                                    color: '#fff',
+                                    padding: '4px 10px',
+                                    borderRadius: '4px',
+                                    fontSize: '14px',
+                                    whiteSpace: 'nowrap',
+                                    zIndex: 1000
+                                }
+                            },
+                            String(this.state.liked)
+                        )
+                    ]
+                );
+            }
+        }
+        const domContainer = document.querySelector('#like-button-container');
+        ReactDOM.render(x(LikeButton), domContainer);
+    </script>
+</body>
+</html>

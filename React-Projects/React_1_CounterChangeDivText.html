@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Example 1</title>
+    <!-- REACT LIBRARY CDN DEVELOPMENT -->
+    <script src="https://fb.me/react-0.14.3.js"></script>
+    <script src="https://fb.me/react-dom-0.14.3.js"></script>
+    <!-- REACT LIBRARY CDN PRODUCTION -->
+    <!-- <script src="https://fb.me/react-0.14.3.min.js"></script>
+    <script src="https://fb.me/react-dom-0.14.3.min.js"></script> -->
+    <!-- REACT LIBRARY DOWNLOADED VERSION -->
+    <!-- <script src="react-0.14.3/react.min.js" crossorigin></script>
+    <script src="react-0.14.3/react-dom.min.js" crossorigin></script> -->
+</head>
+<body>
+    <h1>React Example 1</h1>
+    <div id="my-react-code"></div>
+    <script>
+        var counter = React.createClass({
+            render: function() {
+                var timePassed = Math.round(this.props.timePassed / 100);
+                var secondsPassed = timePassed / 10 + (timePassed % 10 ? '' : '.0');
+                var text = 'My react code started running ' + secondsPassed + ' seconds ago.';
+                return React.DOM.p(null, text);
+            }
+        });
+        
+        var counterFactory = React.createFactory(counter);
+        var startCounting = new Date().getTime();
+
+        setInterval(function() {
+            var timePassed = new Date().getTime() - startCounting;
+            var counterElement = counterFactory({timePassed: timePassed});
+            ReactDOM.render(counterElement, document.getElementById('my-react-code'));
+        }, 50);
+    </script>
+</body>
+</html>

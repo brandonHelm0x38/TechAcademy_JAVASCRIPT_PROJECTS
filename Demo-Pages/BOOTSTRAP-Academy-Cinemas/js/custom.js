@@ -61,4 +61,18 @@ function buyTickets() {
     displaySelectedMovieOptions();
 }
 
+// Navbar shrink on scroll page down function
+$(document).on("scroll", function() {
+    if ($(document).scrollTop() > 50) {
+        $(".navbar").addClass("nav-shrink");
+        $("div.navbar-collapse").css("margin-top", "-6px");
+    } else {
+        $(".navbar").removeClass("nav-shrink");
+        $("div.navbar-collapse").css("margin-top", "14px");
+    }
+});
 
+// Close mobile menu on link click
+$('.navbar-nav>li>a').on('click', function(){
+    $('.navbar-collapse').collapse('hide');
+});

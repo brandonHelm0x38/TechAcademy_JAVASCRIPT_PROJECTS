@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilizing XML with JavaScript</title>
+</head>
+<body>
+    <h1>Utilizing XML with JavaScript</h1>
+    <p id="xml-example"></p>
+
+    <script>
+        // Create an XML document
+        const parser = new DOMParser();
+        const xmlString = `
+            <movies>
+                <movie>
+                    <title>Inception</title>
+                    <director>Christopher Nolan</director>
+                    <year>2010</year>
+                </movie>
+                <movie>
+                    <title>The Matrix</title>
+                    <director>The Wachowskis</director>
+                    <year>1999</year>
+                </movie>
+                <movie>
+                    <title>The Avengers</title>
+                    <director>Joss Whedon</director>
+                    <year>2012</year>
+                </movie>
+            </movies>
+        `;
+        const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+
+        // Parse and display the XML data
+        const movies = xmlDoc.getElementsByTagName("movie");
+        let output = "<h2>Movie List:</h2><ul>";
+        for (let i = 0; i < movies.length; i++) {
+            const title = movies[i].getElementsByTagName("title")[0].textContent;
+            const director = movies[i].getElementsByTagName("director")[0].textContent;
+            const year = movies[i].getElementsByTagName("year")[0].textContent;
+            output += `<li><strong>${title}</strong> directed by ${director} (${year})</li>`;
+        }
+        output += "</ul>";
+
+        document.getElementById("xml-example").innerHTML = output;
+    </script>
+</body>
+</html>
