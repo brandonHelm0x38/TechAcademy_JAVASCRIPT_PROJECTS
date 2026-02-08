@@ -1,4 +1,39 @@
+// Functionality for page fade-in effect on load
 $(document).ready(function () {
+    // Remove the fade-in class to trigger fade-in
+    $("body").removeClass("fade-in");
+});
+
+// Optional: Add fade-out on page unload (if desired)
+// $(window).on('beforeunload', function () {
+//     $("body").addClass("loaded");
+// });
+
+// Close contact form when close button is clicked
+$("#close-contact-form").on("click", function (e) {
+    e.preventDefault();
+    $("#contact-form").css("display", "none");
+});
+
+// Show contact form on button click
+$("#contact-button").on("click", function (e) {
+    e.stopPropagation();
+    $("#contact-form").css("display", "flex");
+});
+
+// Hide contact form when clicking outside of it
+$(document).on("mousedown", function (e) {
+    var $form = $("#contact-form");
+    if ($form.is(":visible") && !$form.is(e.target) && $form.has(e.target).length === 0) {
+        $form.css("display", "none");
+    }
+});
+
+// Document ready function to ensure the DOM is fully loaded before executing scripts
+$(document).ready(function () {
+    // Page Fade-in Effect
+    $("body").removeClass("loaded");
+
     //shineLoop uses the animate event method by using the chaining technique to
     //utilize more than one event method in the same function
     function shineLoop() {

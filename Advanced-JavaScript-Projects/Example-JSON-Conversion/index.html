@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Conversion</title>
+</head>
+<body>
+    <p id="jsonOutput1"></p>
+    <p id="jsonOutput2"></p>
+    <script>
+        // Create a JavaScript object
+        const car = {
+            make: "Toyota",
+            model: "Camry",
+            year: 2020,
+            colors: ["red", "blue", "green"]
+        };
+
+        // Convert the JavaScript object to a JSON string
+        const jsonString = JSON.stringify(car);
+
+        // Display the JSON string in the paragraph
+        document.getElementById("jsonOutput1").textContent = jsonString;
+
+        // Convert the JSON string back to a JavaScript object
+        const parsedCarObject = JSON.parse(jsonString);
+
+        // Build a string to display from the object created...
+        var carInfo = "Car Information:<br>";
+        carInfo += `Make: ${parsedCarObject.make}<br>`;
+        carInfo += `Model: ${parsedCarObject.model}<br>`;
+        carInfo += `Year: ${parsedCarObject.year}<br>`;
+        carInfo += `Available Colors: ${parsedCarObject.colors.join(", ")}<br>`;
+        // Display a property of the parsed object
+        document.getElementById("jsonOutput2").innerHTML = carInfo;
+    </script>
+</body>
+</html>

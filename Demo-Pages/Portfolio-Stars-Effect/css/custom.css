@@ -1,0 +1,607 @@
+/* Imported fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yesteryear&display=swap');
+
+/* VARIABLES */
+/* ======================================================================= */
+:root {
+    --main-color: rgb(126, 133, 130);
+    --main-color-accent: darkblue;
+    --main-color-transparent: rgba(126, 133, 130, 0.8);
+    --secondary-color: rgba(0, 0, 0, 1);
+    --accent-color: rgb(36, 36, 36);
+    --accent-text-color: rgb(255, 255, 255);
+
+    --nav-bg-color: rgba(0, 0, 0, 1);
+    --nav-std-accent: rgb(150, 105, 33);
+    --nav-hover-accent: rgb(237, 192, 3);
+    --scroll-btn-bg: transparent;
+    --scroll-btn-triangle: rgb(150, 105, 33);
+
+    --main-font-family: 'Passion One', cursive;
+    --secondary-font-family: 'Arial', sans-serif;
+}
+
+body {
+    /* 1. Hide the default scrollbar on the body */
+    overflow: hidden; 
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: var(--main-font-family);
+    color: var(--nav-hover-accent); /* Main page text color */
+}
+
+p {
+    color: var(--nav-hover-accent); /* Accent text color for paragraphs */
+    font-family: var(--secondary-font-family);
+    font-size: 1rem;
+}
+
+/* Applies to list elements on resume / skills & experience page so it matches the rest of the body text elements */
+.body-text li {
+    color: var(--nav-hover-accent);
+    font-family: var(--secondary-font-family);
+    font-size: 1rem;
+}
+
+a {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    color: orange;
+    font-weight: bold;
+}
+
+a:hover, a:focus {
+    transform: scale(1.18);
+    z-index: 1;
+    color: yellow;
+    transition: transform 0.3s ease;
+}
+
+/* 2. Create the container for the animated background */
+/* ======================================================================= */
+.animated-background {
+    position: fixed; /* Fixes it to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/EarthSpaceHorizon2.jpg'); /* Replace with your image path */
+    background-size: 100% 160%;
+    background-position: center top;
+    /* Apply the animation */
+    animation: backgroundZoom 10s infinite alternate forwards ease-in-out;
+    z-index: -1; /* Puts it behind the content */
+}
+
+/* Define the keyframes for the zoom animation */
+@keyframes backgroundZoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2); /* Zoom in effect */
+    }
+}
+
+.stars {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 1);
+    animation: animate 3s linear infinite;
+}
+
+.stars::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg, #fff, transparent);
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(315deg) translateX(500px);
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(315deg) translateX(-1000px);
+        opacity: 0;
+    }
+}
+
+.stars:nth-child(1) {
+    top: 0;
+    right: 0;
+    left: initial;
+    animation-delay: 0s;
+    animation-duration: 1s;
+}
+.stars:nth-child(2) {
+    top: 0;
+    right: 80px;
+    left: initial;
+    animation-delay: 0.2s;
+    animation-duration: 3s;
+}
+.stars:nth-child(3) {
+    top: 80px;
+    right: 0px;
+    left: initial;
+    animation-delay: 0.4s;
+    animation-duration: 2s;
+}
+.stars:nth-child(4) {
+    top: 0px;
+    right: 180px;
+    left: initial;
+    animation-delay: 0.6s;
+    animation-duration: 1.5s;
+}
+.stars:nth-child(5) {
+    top: 0px;
+    right: 400px;
+    left: initial;
+    animation-delay: 0.8s;
+    animation-duration: 2.5s;
+}
+.stars:nth-child(6) {
+    top: 0px;
+    right: 600px;
+    left: initial;
+    animation-delay: 1s;
+    animation-duration: 3s;
+}
+.stars:nth-child(7) {
+    top: 300px;
+    right: 0px;
+    left: initial;
+    animation-delay: 1.2s;
+    animation-duration: 1.75s;
+}
+.stars:nth-child(8) {
+    top: 0px;
+    right: 700px;
+    left: initial;
+    animation-delay: 1.4s;
+    animation-duration: 1.25s;
+}
+.stars:nth-child(9) {
+    top: 0px;
+    right: 1000px;
+    left: initial;
+    animation-delay: 0.75s;
+    animation-duration: 2.25s;
+}
+.stars:nth-child(10) {
+    top: 0px;
+    right: 450px;
+    left: initial;
+    animation-delay: 2.75s;
+    animation-duration: 2.25s;
+}
+
+/* NAVBAR */
+/* ======================================================================= */
+.navbar {
+    background-color: var(--nav-bg-color);
+    opacity: 1;
+    border-bottom: 5px solid var(--nav-std-accent);
+    height: 100px;
+    font-weight: bold;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: yellow;
+    z-index: 20;
+}
+
+/* Specifically styles the Navbar title/brand */
+.navbar-brand {
+    color: var(--nav-std-accent);
+    font-family: var(--main-font-family);
+    font-size: 45px;
+    padding-left: 30px;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: yellow;
+}
+
+.navbar-brand:hover, .navbar-brand:focus {
+    color: var(--nav-hover-accent);
+}
+
+.nav-item {
+    color: var(--nav-std-accent);
+    font-family: var(--main-font-family);
+    font-size: 35px;
+    background-color: black;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: yellow;
+}
+
+.nav-link {
+    color: var(--nav-std-accent);
+    background-color: black;
+    font-family: var(--main-font-family);
+    font-size: 35px;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: yellow;
+}
+
+/* Affects the hover state of the navbar links */
+/* Sets the color of the link that has been clicked on; in other words, the active link */
+.nav-link:hover, .nav-link:focus, .navbar-brand:hover {
+    color: var(--nav-hover-accent);
+    text-shadow: 2px 2px 5px yellow;
+}
+
+/* Adjusts the left padding of the navbar links */
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-left: 1.5rem;
+}
+
+/* DROP DOWN MENU */
+/* ======================================================================= */
+
+/* Targets the drop down menu that contains the links for each movie title */
+.dropdown-menu {
+    border: none;
+    border-radius: 0;
+    box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.4);
+    width: 110%;
+    background-color: black;
+    padding: 0px; /* Removes Bootstraps's default padding from the dropdown menu */
+}
+
+/* Sets up the styling for the dropdown items within the dropdown menu */
+.dropdown-item {
+    color: var(--accent-color);
+    font-family: var(--main-font-family);
+    text-align: left;
+    font-size: 30px;
+    margin-left: 20px;
+    width: 90%;
+    padding-top: 15px; /* Adds padding to the top of each dropdown item */
+    border-bottom: 2px solid rgb(117, 77, 13);
+}
+
+/* Changes the background color of the dropdown items on hover */
+.dropdown-item:hover, .dropdown-item:focus {
+    color: var(--accent-text-color);
+    background-color: var(--main-color);
+}
+
+/* MOBILE MENU */
+.navbar-toggler {
+    border: none;
+    transition: 0.5s ease;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width) var(--nav-hover-accent);
+    transition: 0.5s ease;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(237, 192, 3)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* BOTTOM STICKY CONTACT BUTTON & FORM STYLING */
+/* ======================================================================= */
+
+#contact-button {
+    position: fixed;
+    float: right;
+    z-index: 10;
+    bottom: 5vh;
+    right: 4vw;
+    border: 3px solid var(--nav-std-accent);
+    border-radius: 8px;
+    padding: 0.75em 1.5em;
+    font-family: var(--main-font);
+    font-size: 20px;
+    background-color: black;
+    cursor: pointer;
+}
+
+#contact-button:hover {
+    background-color: var(--nav-hover-accent);
+    color: black;
+    font-weight: bold;
+    box-shadow: 0 0 10px var(--nav-hover-accent);
+}
+
+/* Shine effect for Contact Me text */
+.shine {
+        margin: 0;
+    background-image: linear-gradient(120deg,
+            #ffffff 40%,
+            #000 50%,
+            #ffffff 60%);
+    background-size: 200% 100%;
+    background-position: -100% 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine-move 2s linear infinite;
+}
+
+@keyframes shine-move {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+#contact-form {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--nav-std-accent);
+    border-radius: 10px;
+    background-color: black;
+    width: 90vw;
+    color: white;
+    padding: 1rem;
+    z-index: 30;
+    box-shadow: 10px 10px 15px -5px rgba(60, 60, 60, 0.35),
+        5px 5px 10px -5px rgba(0, 0, 0, 0.5);
+}
+
+.flex-container-contact-form-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cf-my-details-col, .cf-linked-in-col {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+}
+
+.cf-my-details-col p, .cf-linked-in-col p {
+    padding: 0;
+    margin: 0;
+} 
+
+.cf-my-details-col a, .cf-linked-in-col a {
+    color: var(--nav-hover-accent);
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+} 
+
+.cf-my-details-col a:hover {
+    color: orange !important;
+    transform: scale(1.2);
+    z-index: 1;
+}
+
+.cf-linked-in-col a:hover {
+    color: orange !important;
+    transform: scale(1.5);
+    z-index: 1;
+}
+
+.divider {
+    width: 100%;
+    height: 2px;
+    border: 1px solid var(--nav-std-accent);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+form {
+    width: 80%;
+}
+
+#contact-form input,
+#contact-form select {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+}
+
+#contact-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+    height: 150px;
+}
+
+#contact-form input[type="submit"] {
+    width: auto;
+    cursor: pointer;
+}
+
+/* 3. Create the scrollable content container */
+/* ======================================================================= */
+.scroll-container {
+    position: relative; /* Stacks it above the background */
+    height: 89%; /* Takes full viewport height */
+    overflow-y: auto; /* Adds a vertical scrollbar to this specific container */
+    padding: 20px;
+    /* Optional: Add a semi-transparent background to improve readability */
+    background-color: rgba(0, 0, 0, 0.5); 
+    box-sizing: border-box; /* Ensures padding is included in height calculation */
+}
+
+/*  ALL SCROLL-BAR AND BUTTON SETTINGS; Note -webkit-scrollbar is only for some browsers */
+/* -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~- */
+.scroll-container::-webkit-scrollbar {
+    width: 2.4vh;
+    height: 2.4vh;}
+.scroll-container::-webkit-scrollbar-track {
+    background: var(--nav-bg-color);
+    border-radius: .7vh;}
+.scroll-container::-webkit-scrollbar-thumb {
+    background: var(--nav-std-accent);
+    border-radius: .7vh;}
+    .scroll-container::-webkit-scrollbar-thumb:hover {
+        background: var(--nav-hover-accent);}
+/* Buttons */
+.scroll-container::-webkit-scrollbar-button {
+    border-style: solid;
+    height: 2.1vh;
+    width: 2.1vh;}
+/* Up */
+.scroll-container::-webkit-scrollbar-button:vertical:decrement {
+    border-width: 0 1.1vh 2.2vh 1.1vh;
+    border-color: var(--scroll-btn-bg) var(--scroll-btn-bg) var(--scroll-btn-triangle) var(--scroll-btn-bg); }
+    .scroll-container::-webkit-scrollbar-button:vertical:decrement:hover {
+        border-color: transparent transparent var(--nav-hover-accent);
+        animation: zoom-in-zoom-out .6s ease infinite; }
+/* Down */
+.scroll-container::-webkit-scrollbar-button:vertical:increment {
+    border-width: 2.2vh 1.1vh 0 1.1vh;
+    border-color: var(--scroll-btn-triangle) var(--scroll-btn-bg) var(--scroll-btn-bg) var(--scroll-btn-bg); }
+    .scroll-container::-webkit-scrollbar-button:vertical:increment:hover {
+        border-color: var(--nav-hover-accent) transparent transparent transparent;
+        animation: zoom-in-zoom-out .6s ease infinite; }
+/* Left */
+.scroll-container::-webkit-scrollbar-button:horizontal:decrement {
+    border-width: 1.1vh 2.2vh 1.1vh 0;
+    scroll-margin: 100px;
+    border-color: var(--scroll-btn-bg) var(--scroll-btn-triangle) var(--scroll-btn-bg) var(--scroll-btn-bg); }
+    .scroll-container::-webkit-scrollbar-button:horizontal:decrement:hover {
+        border-color: transparent var(--nav-hover-accent) transparent transparent;
+        animation: zoom-in-zoom-out .6s ease infinite; }
+/* Right */
+.scroll-container::-webkit-scrollbar-button:horizontal:increment {
+    border-width: 1.1vh 0 1.1vh 2.2vh;
+    border-color: var(--scroll-btn-bg) var(--scroll-btn-bg) var(--scroll-btn-bg) var(--scroll-btn-triangle); }
+    .scroll-container::-webkit-scrollbar-button:horizontal:increment:hover {
+        border-color: transparent transparent transparent var(--nav-hover-accent);
+        animation: zoom-in-zoom-out .6s ease infinite; }
+@keyframes zoom-in-zoom-out {
+    0% { transform: scale(1, 1); }
+    50% { transform: scale(.7, .7); }
+    100% { transform: scale(1, 1); }    }
+
+
+/* Introduction text on main home page */
+/* ======================================================================= */
+.header-text {
+    text-align: center;
+    margin: 100px;
+}
+
+.header-text h1 {
+    font-size: 3rem;
+    color: orange;
+    text-decoration: underline;
+    padding-bottom: 1rem;
+}
+
+.header-text p {
+    font-size: 1.5rem;
+}
+
+/* PORTFOLIO PROJECT CARD */
+/* ======================================================================= */
+.card {
+    background-color: transparent;
+    border: 2px solid var(--nav-std-accent);
+    margin-bottom: 20px;
+}
+
+.card-body img {
+    border: 2px solid var(--nav-std-accent);
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(60, 60, 60, 0.35),
+        5px 5px 10px -5px rgba(0, 0, 0, 0.5);
+}
+
+.card table a {
+    color: orange !important;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-decoration: underline;
+    padding-bottom: 1rem;
+    padding-left: 1.5rem;
+    display: inline-block;
+    margin: 0;
+}
+
+.card table a:hover{
+    color: yellow !important;
+    transform: scale(1.18);
+    z-index: 1;
+}
+
+.card table h4 {
+    padding: 0.5em 0;
+    margin-top: 1rem;
+}
+
+/* Styling for Resume / Skills and Experience Section */
+/* ======================================================================= */
+.center-field {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* FOOTER STYLING */
+/* ======================================================================= */
+footer.bg-dark {
+    background-color: rgba(52, 58, 64, 0.4) !important;
+}
+footer p {
+    line-height: 1.6;
+    color:white; 
+    text-align:center; 
+    margin-top:20px;
+}
+footer a {
+    color: orange !important;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: underline;
+    display: inline-block;
+    margin: 0;
+}
+footer a:hover {
+    color: yellow !important;
+    transform: scale(1.10);
+    z-index: 1;
+}
+
+#icon-frame {
+    position: relative;
+    margin-right: 1rem;
+    display: inline-block;
+}
+
+#network-on a {
+    color: orange !important;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+#network-on a:hover {
+    color: yellow !important;
+    transform: scale(1.5);
+    z-index: 1;
+    text-align: center;
+}

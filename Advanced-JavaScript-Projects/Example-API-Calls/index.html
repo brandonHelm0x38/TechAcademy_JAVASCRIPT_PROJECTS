@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple API Examples</title>
+</head>
+<body>
+    <h1>Yoda Speak Generator</h1>
+    <p>May be limited to 6 per hour / 60 per day</p>
+    <input type="text" id="yoda-input" placeholder="Enter text for Yoda...">
+    <button onclick="convertYodaSpeak()">Yoda Says</button>
+    <p id="yoda-response"></p>
+    <hr>
+    <h1>Random Cat Facts Generator</h1>
+    <button onclick="randomCatFacts()">Get Cat Fact</button>
+    <p id="cat-facts"></p>
+    <hr>
+    <h1>Number Facts Generator - (Doesn't Work!)</h1>
+    <p>Enter a number to get a fact about it, or leave blank for a random number fact.</p>
+    <input type="text" id="number-input" placeholder="Enter a number...">
+    <button onclick="getNumberFact()">Get Number Fact</button>
+    <p id="number-fact-response"></p>
+    <hr>
+    <h1>Generate a Random Dog Picture</h1>
+    <button onclick="randomDogPicture()">Get Dog Picture</button>
+    <div id="dog-picture"></div>
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <script>
+        function convertYodaSpeak() {
+            const input = document.getElementById('yoda-input').value.trim();
+            if (!input) {
+                document.getElementById('yoda-response').innerText = 'Please enter some text.';
+                return;
+            }
+            fetch('https://api.funtranslations.com/translate/yoda.json?text=' + encodeURIComponent(input))
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('yoda-response').innerText = data.contents.translated;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('yoda-response').innerText = 'Error fetching Yoda translation.';
+                });
+        }
+
+        function randomCatFacts() {
+            fetch('https://catfact.ninja/fact')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('cat-facts').innerText = data.fact;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('cat-facts').innerText = 'Error fetching cat fact.';
+                });
+        }
+
+        function getNumberFact() {
+            const input = document.getElementById('number-input').value.trim();
+            const url = input ? `http://numbersapi.com/${input}` : 'http://numbersapi.com/random';
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('number-fact-response').innerText = data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('number-fact-response').innerText = 'Error fetching number fact.';
+                });
+        }
+
+        function randomDogPicture() {
+            fetch('https://dog.ceo/api/breeds/image/random')
+                .then(response => response.json())
+                .then(data => {
+                    const dogPictureDiv = document.getElementById('dog-picture');
+                    dogPictureDiv.innerHTML = `<img src="${data.message}" alt="Random Dog" style="max-width: 300px;">`;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('dog-picture').innerText = 'Error fetching dog picture.';
+                });
+        }
+    </script>
+</body>
+</html>
