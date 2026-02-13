@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandon Helm Portfolio</title>
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- GL Matrix needed for WebGL -->
+    <script src="js/gl-matrix.min.js"></script>
+    <!-- Portfolio-Site Custom CSS -->
+    <link rel="stylesheet" href="../../css/custom.css">
+    <!-- Portfolio-Site Custom Media Queries -->
+    <link rel="stylesheet" href="../../css/custom-media.css">
+    <!-- Page specific styling -->
+    <link rel="stylesheet" href="css/sp-opensource.css">
+</head>
+<body>
+    <!-- ANIMATED BACKGROUND ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ================================================================= -->
+    <!-- The animated background container -->
+    <div class="animated-background"></div>
+    <!-- Shooting Stars Animation -->
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+
+    <!-- NAVBAR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ================================================================= -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../../index.html">Brandon Helm</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Showcase Projects
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="http://strategicpivot.com">Strategic Pivot</a></li>
+                </ul>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="../../skills-experience.html">Resume</a>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link" id="contact-nav-link" style="cursor:pointer;">Contact</div>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ================================================================= -->
+    <!-- The main content container with an internal scrollbar -->
+    <div class="scroll-container">
+        <main>
+            <!-- BootStrap Responsive Grid Container System -->
+            <div class="container">
+                <h1 style="text-align: center; padding-top: 3rem;">Strategic Pivot: <small>Open-Source Initiative</small></h1>
+                <hr>
+                <!-- Primary Card -->
+                <div class="card w-100 h-100">
+                    <!-- My Content Section -->
+                    <div class="row" style="padding:1rem; justify-content:center; align-items:center;">
+                        
+                        <!-- My Content Section -->
+                        <div class="col-md-12" style="background-color:bisque;color:black;border-radius:10px;padding:2rem;">
+                            <section>
+                                <div>
+                                    <h2>The Interactive Concept Mapping UI</h2>
+                                    <div>
+                                        <!-- INTERACTIVE DEMO -->
+                                        <div id="interactiveDemo">
+                                            <h3>Interactive Core Product Demo</h3>
+                                            
+                                            <canvas id="renderCanvas" width="1000" height="600" style="max-width:100%;height:auto;display:block;"></canvas>
+                                            <div style="margin:8px 0;">
+                                            <label for="lineThickness">Line thickness (px):</label>
+                                            <input id="lineThickness" type="range" min="1" max="40" value="4">
+                                            <span id="lineThicknessValue">4</span>
+                                            <div id="selectedObject" style="display:inline-block; margin-left:24px;">Selected: none</div>
+                                            </div>
+                                            <!-- <script src="js/cubesTextures_ObjectsLinesRaycasting.js"></script> -->
+                                            <script src="js/strategicPivot_Shell.js"></script>
+                                            <script>
+                                                // Responsive canvas scaling
+                                                function resizeCanvas() {
+                                                    const canvas = document.getElementById('renderCanvas');
+                                                    if (!canvas) return;
+                                                    // Set canvas width to container width, max 1000px
+                                                    const container = canvas.parentElement;
+                                                    let width = Math.min(container.offsetWidth, 1000);
+                                                    let height = Math.round(width * 0.6); // Maintain 5:3 aspect ratio
+                                                    canvas.width = width;
+                                                    canvas.height = height;
+                                                    canvas.style.width = width + 'px';
+                                                    canvas.style.height = height + 'px';
+                                                }
+
+                                                window.addEventListener('resize', resizeCanvas);
+                                                window.addEventListener('DOMContentLoaded', resizeCanvas);
+                                                </script>
+                                            <!-- Vertex Shader Script -->
+                                            <script id="vertexShader" type="vertexShader">
+                                                #version 300 es
+                                                in vec3 position;
+                                                in vec4 color;
+                                                in vec2 textureCoord;
+
+                                                out vec4 fcolor;
+                                                out vec2 ftextureCoord;
+
+                                                uniform mat4 modelMatrix;
+                                                uniform mat4 viewMatrix;
+                                                uniform mat4 projectionMatrix;
+
+                                                void main() {
+                                                    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position.x, position.y, position.z, 1.0);
+                                                    fcolor = color;
+                                                    ftextureCoord = textureCoord;
+                                                }
+                                            </script>
+                                            <!-- Fragment Shader Script -->
+                                            <script id="fragmentShader" type="fragmentShader">
+                                                #version 300 es
+                                                precision mediump float;
+                                                in vec4 fcolor;
+                                                in vec2 ftextureCoord;
+
+                                                uniform sampler2D uniformSampler;
+                                                uniform vec4 uColor;
+
+                                                out vec4 finalColor;
+
+                                                void main() {
+                                                    finalColor = texture(uniformSampler, ftextureCoord) * fcolor * uColor;
+                                                }
+                                            </script>
+                                        </div>
+                                        <!-- GEO-POLITICAL MARKET GOALS -->
+                                        <div id="geoPolitical">
+                                            <h3>Geo-Political Market Goals & The Strategic Pivot Brand</h3>
+                                            <p>Our goal in the geo-political market is very specific and the reason for the Strategic Pivot brand overall.  Understand these initiatives are all tied together and have a policy component that must be addressed as how educational systems integrate with mental health resources and identity products is it's own complex challenge.<br>
+                                            <br>
+                                            The primary opportunity, is the way the Strategic Pivot Brand will be a resource for currating learning content from different sources, and thus applies more generally to the market of employee development and continuous improvement programs. However, this is being launched as an open-source initiative, with the goal of fostering collaboration and innovation across different sectors.  Our primary goal which we believe changes the world, is to get social-medias to compete in a continual space race like chase to compete over the continual development of this overall eco-system.  The reason is that it will allow us to organize nationally to approach and follow along with vastly different emerging issues, with a huge goal of zeroing in on strategy development and inspiring positive action.<br> 
+                                            <br>
+                                            Companies like Bluesky would call our approach decentralized, as we specifically designed the feature UX/UI to mediate and currate links between different content sources, such as Facebook branches, Reddit branches, etc. When you post, you post to that source site. Strategic Pivot is founded in part with the realization that the most interesting things we can build do require centralized layers to facilitate certain products existence... such as Strategic Pivot itself, which is all about being a central hub for different sources to feature their branches of the discussion, and their content customized for that approach.<br>
+                                            <br>
+                                            To realize that any Decentralized approach requires some level of central coordination, is a massive thing to realize and part of the reason Strategic Pivot aimed to do everything so differently. Our founder drafted a 28th Amendment for the U.S. Constitution aimed at guding this realization to it's fullest potential, and thus expose a new extensible model... a path for any government to follow. It follows American tradition by creating a modern Bussinesss' Bill of Rights which serves as a gudie explaining the ground rule for competition in what we call Major Market Verticals... or the critical central layers we need for modern eco-systems to exist, and we define this where-as each bussiness qualifying in that market has weight, based on their qualifying market capitalization in that vertical.  This enables a currently active business democracy to guide our collaboration on these endeavors. We need a model of some sort to define and organize our modern digital democracy, which would be born through this collection of initiatives.<br>
+                                            <br>
+                                            A huge realization to pepper in here is that most modern peace and international treaty opportunities will revolve around digital information exchange agreements, and thus having an organized model, a plan of some sorts for "Digital Democracy" is crucial.<br>
+                                            <br>
+                                            We have designed Strategic Pivot to act as one of those critical central hubs, ensuring that the various branches of content can interact and be curated effectively. We believe this is the chief priority with the most potential for enabling success in that inter-related set of intitiatives, because it's what allows everyone to follow along with this set of discussions as scale, and thus positions us for success in exploring collaboartion in emerging sectors. Any Open-Source initiative becomes easier to collaborate on through the kinds of tools this core UI approach enables.<br>
+                                            <br>
+                                            In the Major Market Vertical we're founded to serve, the companies then compete primarily on who can build the best network of partners to support the most innovative interactive quiz tools for educators to currate content with and create extra-credit opportunties zero-ed in on interatively developing skills for current priorities. The biggest companies do have the most pull in my model, but it's to everyone's advantage to create the central skills repository and engine for cross-validating the same credit for answering the same questions from different sources. It opens the market. And that feature enables the skills maps to highlight areas that someone already understands... based on the interactive quiz content analysis between different sources, vastly opening up the versatlitity of the platform.<br>
+                                            <br>
+                                            We believe this new concept in the market over the competition around enhancing learning and collaboration networking... that's whats going to change the world. That's a continual chase positioned to create a huge continual surging effect in the economy.<br>
+                                            <br>
+                                            It does this because a huge new way employers will recruit will be looking at skills profiles rather than traditional resumes, emphasizing the continuous development of relevant skills over time.<br>
+                                            <br>
+                                            This opportunity is huge, and the Decentralized approach is key as this overall system becomes an interactive team playbook where political leaders can partner with key leaders in emerging fields to pivot the workforce in emerging opportunties. In truth, this approach has the potential to reshape how knowledge is shared and utilized across sectors, creating a more agile and responsive workforce.<br>
+                                            <br>
+                                            By decentralizing the curation and dissemination of learning content, we empower individuals and organizations to take ownership of their learning journeys, fostering a culture of continuous improvement and adaptability.<br>
+                                            <br>
+                                            The 2 massive things this does for the economy at large are:</p>
+                                            <ul style="font-family:var(--secondary-font-family);font-weight:bold;">
+                                                <li>It creates a more dynamic and responsive labor market, where workers can quickly acquire new skills and adapt to changing industry demands.</li>
+                                                <li>It fosters innovation by enabling the rapid dissemination of knowledge and best practices across industries, leading to more efficient problem-solving and economic growth.</li>
+                                            </ul>
+                                            <p><br>
+                                            In conclusion, Strategic Pivot aims to bridge different Social-Media and forum tools with learning content search engines powered by the Interactive Concept Mapping UI. And the website aims to make it easy for educators to make interactive quizzes for online videos and articles. A final note, currently you aren't credited for reading difficult books on subjects in the market today, but with this interative eco-system, anything could have an interactive quiz, and social medias compete to make the best tools as this is foundational to our organizational ability as a society.<br>
+                                            <br>
+                                            The final video ties these initiatives all together and provides insight into why this collection of approaches can revolutionize our interaction with current events, bring the National Debt crisis into focus, and advance complex systems analysis in general. We had wanted to make government efficiency a priority before DOGE was a concept, but our founder, a former process engineer in eComeerce, had been developing the skills to pitch this approach since 2019.</p>
+                                        </div>
+                                        <!-- EDUCATION MARKET GOALS -->
+                                        <div id="education">
+                                            <h3>Education Market Goals & Opportunities</h3>
+                                            <p>Our goal in the education market is to leverage interactive concept mapping to enhance learning outcomes by providing students and educators with tools to visualize and understand complex relationships between concepts. Opportunities include integrating this technology into digital textbooks, online courses, and classroom activities to foster deeper comprehension and engagement.<br>
+                                            <br>
+                                            As stated above, Strategic Pivot is aimed at creating diverse competition in the market-place by enabling different social media platforms and educational content providers to develop and offer the best interactive quiz tools for educators, thereby driving innovation and improving learning outcomes.<br>
+                                            <br>
+                                            We believe our approach is key to transforming not just education, but as education organizes for this initiative, it will prove to other industries the power of this general model, and in truth, it will uncover a potential plan for the National Debt Crisis.
+                                            </p>
+                                        </div>
+                                        <!-- MENTAL HEALTH MARKET GOALS -->
+                                        <div id="mentalHealth">
+                                            <h3>Mental Health Market Goals & Opportunities</h3>
+                                            <p>Our goal in the mental health market is to utilize interactive concept mapping to support mental health professionals in visualizing and understanding the relationships between various mental health factors, treatments, and patient progress.<br>
+                                            <br>
+                                            Our approach dials in on a specific journaling eco-system design and related set of data-structures that can be supported by AI features for journal suggestions and relationship mapping modes.  Opportunities include incorporating this technology into therapy sessions, mental health apps, and research studies to improve patient outcomes and facilitate data-driven decision-making.</p>
+                                        </div>
+                                        <!-- FLOWCHARTING MARKET GOALS -->
+                                        <div id="flowcharting">
+                                            <h3>Flowcharting Market Goals & Opportunities</h3>
+                                            <p>Our goal in the flowcharting market is to provide users with intuitive tools for creating and managing flowcharts that represent complex processes and systems. Opportunities include integrating this technology into code analysis tools, business process management software, educational tools, and collaborative platforms to enhance productivity and understanding of connections between concepts.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- VIDEOS -->
+                            <section>
+                                <!-- OVERALL VISION VIDEO -->
+                                <div id="video">
+                                    <h3>Tying It All Together; A Plan for the Global Debt Crisis</h3>
+                                    <p>This video outlines our overall vision and strategy for addressing the global debt crisis through innovative educational and mental health initiatives, as well as advanced flowcharting techniques.</p>
+                                    <div class="video-responsive">
+                                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- FOOTER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- ================================================================= -->
+            <footer class="bg-dark text-white pt-5 pb-4">
+                <div class="container text-center text-md-start">
+                    <div class="row text-center text-md-start">
+                        
+                        <!-- Company Info Column -->
+                        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                            <h5 class="text-uppercase mb-4 font-weight-bold text-warning text-center">Brandon Helm Outro</h5>
+                            <p>
+                                Thank you for visiting my portfolio website.  I look forward to connecting with you and exploring potential opportunities together. Please feel free to reach out to me through the contact information provided, or by filling out the contact form on this website. I am eager to discuss how my skills and experiences can contribute to your projects and goals. Let's create something amazing together!
+                            </p>
+                        </div>
+
+                        <!-- Contact Section Column -->
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                            <h5 class="text-uppercase mb-4 font-weight-bold text-warning text-center">Contact</h5>
+                            <p>
+                                <i class="fas fa-home mr-3" style="margin-right: 1rem;"></i> Saint Paul, MN 55104, US
+                            </p>
+                            <div style="display:flex;text-align:center;justify-content:center;align-items:center;">
+                                <p id="icon-frame"><i class="fas fa-envelope mr-3"></i></p>
+                                <a href="mailto:brandon.helm@strategicpivot.com" class="std-hyperlink">brandon.helm@strategicpivot.com</a>
+                            </div>
+                            <div style="display:flex;text-align:center;justify-content:center;align-items:center;">
+                                <p id="icon-frame"><i class="fas fa-phone mr-3"></i></p>
+                                <a rel="noopener noreferrer" href="tel:+16517752272" class="std-hyperlink">(651) 775-2272</a>
+                            </div>
+                        </div>
+
+                        <!-- Optional: Links Column -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                            <h5 class="text-uppercase mb-4 font-weight-bold text-warning text-center">GitHub Account</h5>
+                            <div id="network-on" class="text-center mt-3">
+                                <table style="margin:auto">
+                                    <tr>
+                                        <td><h6 class="card-subtitle mb-2">My GitHub:</h6></td>
+                                        <td><a href="https://github.com/brandonhelm0x38" target="_blank" class="text-white mr-4"><i class="fab fa-github"></i></a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- Add more links as needed -->
+                        </div>
+                        
+                        <!-- Optional: Social Media Column -->
+                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                            <h5 class="text-uppercase mb-4 font-weight-bold text-warning text-center">Network On</h5>
+                            <div id="network-on" class="mt-3">
+                                <!-- Add social media icons here, e.g., Font Awesome icons -->
+                                <table style="margin:auto">
+                                    <tr>
+                                        <td style="text-align:right;"><h6 class="card-subtitle mb-2">My Linked-In:</h6></td>
+                                        <td><a href="https://www.linkedin.com/in/strategicpivot" target="_blank" class="text-white mr-4"><i class="fab fa-linkedin-in"></i></a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="mb-4">
+
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div style="display:flex;text-align:center;justify-content:center;align-items:center;">
+                                <p style="margin-right:1rem;position:relative;top:-.2rem;">Copyright © 2026 All rights reserved by:</p>
+                                <a href="#" style="text-decoration: none;"><strong>Brandon Helm</strong></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div> <!-- End of scroll-container -->
+    
+    <!-- CONTACT POP-UP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ================================================================= -->
+    <!-- Contact Button -->
+    <div id="contact-button">
+        <p class="shine">Contact Me</p>
+    </div>
+    <!-- Contact Form Pop-up -->
+    <div id="contact-form">
+        <button id="close-contact-form" aria-label="Close contact form" style="position:absolute;top:0px;right:10px;font-size:3em;background:none;border:none;cursor:pointer;z-index:21;color:white;">&times;</button>
+        <h2>Contact Me</h2>
+
+        <div class="divider"></div>
+
+        <div class="flex-container-contact-form-info">
+            <div class="cf-my-details-col">
+                <p style="color:white;"><u>My Email:</u></p>
+                <a href="mailto:brandon.helm@strategicpivot.com">brandon.helm@<br>strategicpivot.com</a>
+                <p style="color:white;"><u>My Phone:</u></p>
+                <a href="tel:+16517752272">(651) 775-2272</a>
+            </div>
+            <div class="cf-linked-in-col">
+                <p style="color:white;"><u>My Linked-In:</u></p>
+                <a href="https://www.linkedin.com/in/strategicpivot" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <p style="color:white;"><u>My GitHub:</u></p>
+                <a href="https://github.com/brandonhelm0x38" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <p style="text-align: center;">Please fill out the form below to get in touch with me. This will send me an email with your contact information and message.</p>
+        <form action="php/send-email-mailerlib.php" method="POST">
+            <label for="name">Your Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Enter your first and last name..." required><br>
+            <label for="email">Your Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="Enter your email address..." required><br>
+            <label for="phone">Your Phone:</label><br>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number..." required><br>
+            <label for="message">Your Message:</label><br>
+            <textarea id="message" name="message" placeholder="Enter your message..."></textarea><br>
+            <input type="submit" value="Submit" id="submit-btn" name="submit">
+        </form>
+    </div>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="../../js/script.js"> </script>
+</body>
+</html>

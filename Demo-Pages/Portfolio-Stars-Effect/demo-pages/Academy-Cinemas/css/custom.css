@@ -1,0 +1,307 @@
+/* Font Passion One from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
+
+/* Font Yesteryear from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Yesteryear&display=swap');
+/* Creates global css variables */
+:root {
+    --main-color: rgb(126, 133, 130);
+    --main-color-accent: rgb(237, 192, 3);
+    --main-color-transparent: rgba(126, 133, 130, 0.8);
+    --secondary-color: rgba(128, 0, 0, 0.9);
+    --accent-color: rgb(36, 36, 36);
+    --accent-text-color: rgb(255, 255, 255);
+
+    --main-font-family: 'Passion One', cursive;
+    --secondary-font-family: 'Yesteryear', cursive;
+}
+
+html {
+    scroll-padding-top: 100px;
+}
+
+body {
+    background-image: url(../images/theater-curtains.jpg);
+    background-size: 100% 120%;
+    overflow-x: hidden;
+    background-attachment: fixed;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: var(--secondary-color);
+    border-bottom: 5px solid rgb(98, 0, 0);
+    height: 100px;
+}
+
+.navbar.nav-shrink {
+    height: 80px;
+    transition: 0.5s ease;
+}
+
+.navbar-collapse {
+    transition: margin-top 0.5s ease;
+}
+
+/* Specifically styles the Navbar title/brand */
+.navbar-brand {
+    color: var(--main-color-accent);
+    font-family: var(--main-font-family);
+    font-size: 45px;
+    padding-left: 30px
+}
+
+.nav-link {
+    color: var(--main-color-accent);
+    font-family: var(--main-font-family);
+    font-size: 35px;
+}
+
+/* Affects the hover state of the navbar links */
+.nav-link:hover {
+    color: var(--main-color-transparent);
+    text-shadow: 0 0 3px rgba(255, 123, 0, 0.6);
+}
+
+/* Sets the color of the link that has been clicked on; in other words, the active link */
+.nav-link:focus {
+    color: var(--accent-text-color);
+    text-shadow: 0 0 3px rgba(255, 123, 0, 0.6);
+}
+
+/* Adjusts the left padding of the navbar links */
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-left: 1.5rem;
+}
+
+/* DROP DOWN MENU */
+
+/* Targets the drop down menu that contains the links for each movie title */
+.dropdown-menu {
+    border: none;
+    border-radius: 0;
+    box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.4);
+    background-color: var(--main-color);
+    padding: 0px; /* Removes Bootstraps's default padding from the dropdown menu */
+}
+
+/* Sets up the styling for the dropdown items within the dropdown menu */
+.dropdown-item {
+    color: var(--accent-color);
+    font-family: var(--main-font-family);
+    text-align: center;
+    font-size: 30px;
+    padding-top: 15px; /* Adds padding to the top of each dropdown item */
+    border-bottom: 2px solid rgb(117, 77, 13);
+}
+
+/* Changes the background color of the dropdown items on hover */
+.dropdown-item:hover, .dropdown-item:focus {
+    color: var(--accent-text-color);
+    background-color: var(--main-color);
+}
+
+/* MOBILE MENU */
+.navbar-toggler {
+    border: none;
+    transition: 0.5s ease;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width) rgb(98,0,0);
+    transition: 0.5s ease;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(237, 192, 3)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* HEADER IMAGE */
+#header-image {
+    padding-top: 150px;
+}
+
+/* GENERAL STYLES */
+h1, h3, h4, h5, p {
+    cursor: default; /* Prevents text selection cursor on headings and paragraphs */
+}
+
+h1 {
+    font-family: var(--main-font-family);
+    color: var(--main-color-accent);
+    text-shadow: 0 0 10px rgb(0,0,0);
+    text-align: center;
+    font-size: 100px;
+}
+
+h3 {
+    font-family: var(--main-font-family);
+    font-size: 50px;
+}
+
+h4 {
+    font-family: var(--secondary-font-family);
+    font-size: 25px;
+}
+
+h5 {
+    font-size: 30px;
+    font-family: var(--main-font-family);
+}
+
+b {
+    font-weight: 600;
+}
+
+img {
+    border-radius: 5px;
+}
+
+/* MOVIE CARDS */
+.container {
+    padding: 100px;
+}
+
+.card {
+    border: 5px solid var(--main-color);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.card-body {
+    padding-top: 30px;
+    padding-left: 20px;
+}
+
+.spacer {
+    padding-top: 50px;
+}
+
+/* BUTTONS */
+
+/* Creates the main styling for buttons that contain that Bootstrap .btn class */
+.btn {
+    background-color: var(--secondary-color);
+    color: var(--accent-text-color);
+    font-family: var(--main-font-family);
+    font-size: 20px;
+    border: none;
+    margin: 5px;
+}
+
+.btn:hover, .btn:focus {
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
+}
+
+.yellow-btn {
+    background-color: var(--main-color-accent);
+    padding: 20px;
+    border-radius: 40px;
+    font-size: 25px;
+    color: var(--accent-color);
+    width: 150px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.yellow-btn:hover, .yellow-btn:focus {
+    background-color: var(--main-color-accent);
+    color: var(--accent-text-color);
+}
+
+/* TICKET CARDS */
+
+/* Specifically styles the card class within the element containing the tickets id */
+#tickets .card {
+    padding: 40px;
+    height: 250px;
+    margin-right: 20px;
+    background-color: white;
+}
+
+.form-select {
+    font-family: var(--main-font-family);
+    font-size: 20px;
+    border: 3px solid var(--main-color);
+    transition: border-color 0.5s ease-in;
+}
+
+.form-select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: none;
+    transition: 0.5s ease-in;
+}
+
+/* Select number of tickets input */
+input[type="number"] {
+    width: 70px;
+    padding: 5px;
+    border: 3px solid var(--main-color);
+    border-radius: 5px;
+    font-family: var(--main-font-family);
+    font-size: 20px;
+    transition: border-color 0.5s ease-in;
+}
+
+input[type="number"]:focus {
+    border-color: var(--secondary-color);
+    box-shadow: none;
+    transition: 0.5s ease-in;
+    outline: 0;
+}
+
+/* CONTACT FORM */
+#contact .row {
+    padding-top: 10px;
+}
+
+.form-control {
+    border: 3px solid var(--main-color);
+    border-radius: 5px;
+    font-family: var(--main-font-family);
+    font-size: 20px;
+    transition: border-color 0.5s ease-in;
+}
+
+.form-control:focus {
+    border-color: rgb(255, 0, 0);
+    transition: 0.5s ease-in;
+}
+
+textarea {
+    height: 150px;
+}
+
+/* FOOTER */
+footer {
+    border-top: 5px solid var(--main-color);
+    background-color: rgba(0,0,0,0.6);
+    margin: 0px -15px 0px -15px;
+}
+
+.footer-text {
+    font-family: var(--main-font-family);
+    font-size: 30px;
+    color: var(--accent-text-color);
+}
+
+.footer-img {
+    width: auto;
+    height: 130px;
+}
+
+/* POPOVERS */
+.star-rating {
+    width: 80%;
+}
+
+/* TOAST --> Comment this out to display basic message on bottom left corner */
+.custom-toast {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    min-width: 250px;
+    z-index: 1055; /* Ensures the toast appears above other elements */
+}

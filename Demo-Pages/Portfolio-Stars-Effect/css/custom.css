@@ -18,6 +18,8 @@
     --scroll-btn-bg: transparent;
     --scroll-btn-triangle: rgb(150, 105, 33);
 
+    --form-placeholder: grey;
+
     --main-font-family: 'Passion One', cursive;
     --secondary-font-family: 'Arial', sans-serif;
 }
@@ -45,18 +47,33 @@ p {
     font-size: 1rem;
 }
 
-a {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-block;
-    color: orange;
+.std-hyperlink {
+    color: orange !important;
+    font-size: 1rem;
     font-weight: bold;
+    text-decoration: underline;
+    display: inline-block;
+    margin: 0;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.std-hyperlink:hover {
+    color: yellow !important;
+    transform: scale(1.1);
+    z-index: 1;
 }
 
-a:hover, a:focus {
-    transform: scale(1.18);
+.img-link {
+    display: inline-block;
+}
+.img-link img {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    border: 2px solid var(--nav-std-accent);
+    border-radius: 5px;
+}
+.img-link:hover img {
+    transform: scale(1.12);
     z-index: 1;
-    color: yellow;
-    transition: transform 0.3s ease;
 }
 
 /* 2. Create the container for the animated background */
@@ -239,7 +256,16 @@ a:hover, a:focus {
 
 /* Affects the hover state of the navbar links */
 /* Sets the color of the link that has been clicked on; in other words, the active link */
-.nav-link:hover, .nav-link:focus, .navbar-brand:hover {
+.nav-link:hover, .nav-link:focus {
+    transform: none !important;
+    transition: none !important;
+    color: var(--nav-hover-accent);
+    text-shadow: 2px 2px 5px yellow;
+}
+
+.navbar-brand:hover, .navbar-brand:focus {
+    transform: none !important;
+    transition: none !important;
     color: var(--nav-hover-accent);
     text-shadow: 2px 2px 5px yellow;
 }
@@ -420,6 +446,14 @@ form {
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 12px;
+    outline: none;
+    color: var(--nav-std-accent);
+    font-family: var(--secondary-font-family);
+    font-weight: bold;
+}
+
+#contact-form input::placeholder, textarea::placeholder {
+    color: var(--form-placeholder);
 }
 
 #contact-form textarea {
@@ -427,11 +461,33 @@ form {
     box-sizing: border-box;
     margin-bottom: 12px;
     height: 150px;
+    outline: none;
+    color: var(--nav-std-accent);
+    font-family: var(--secondary-font-family);
+    font-weight: bold;
 }
 
 #contact-form input[type="submit"] {
     width: auto;
     cursor: pointer;
+    border-radius: 5px;
+}
+
+#contact-form input[type="submit"]:hover {
+    background-color: var(--nav-hover-accent);
+    color: black;
+    font-weight: bold;
+    box-shadow: 0 0 10px var(--nav-hover-accent);
+}
+
+/* Valid and Not_Valid classes for green and red input text and border styling */
+.Valid {
+    color: #198754 !important; /* Bootstrap green */
+    border-color: #198754 !important;
+}
+.Not_Valid {
+    color: #dc3545 !important; /* Bootstrap red */
+    border-color: #dc3545 !important;
 }
 
 /* 3. Create the scrollable content container */
@@ -541,6 +597,7 @@ form {
     padding-left: 1.5rem;
     display: inline-block;
     margin: 0;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card table a:hover{

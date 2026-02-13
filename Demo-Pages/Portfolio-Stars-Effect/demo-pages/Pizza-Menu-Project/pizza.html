@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Menu Demo</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="css/pizza.css">
+    <!-- Link to external JavaScript file -->
+    <script src="js/pizza.js" defer></script>
+</head>
+<body>
+    <div id="menuBG">
+        <h1 style="margin: 0 0px 0 20px;">Pizza Menu Demo</h1>
+        <input id="btnOrder" type="button" value="Place Order" onclick="getReceipt()">
+        <form id="formMenu">
+            <div class="menu left">
+                <h3>Choose Your Pizza Size:</h3>
+                <input type="radio" id="sizePersonal" name="size" value="Personal" onclick="updatePrice(6)">
+                <label for="sizePersonal">Personal ($6.00)</label><br>
+                <input type="radio" id="sizeSmall" name="size" value="Small" onclick="updatePrice(8)">
+                <label for="sizeSmall">Small ($8.00)</label><br>
+                <input type="radio" id="sizeMedium" name="size" value="Medium" onclick="updatePrice(10)">
+                <label for="sizeMedium">Medium ($10.00)</label><br>
+                <input type="radio" id="sizeLarge" name="size" value="Large" onclick="updatePrice(14)">
+                <label for="sizeLarge">Large ($14.00)</label><br>
+                <input type="radio" id="sizeExtraLarge" name="size" value="Extra Large" onclick="updatePrice(16)">
+                <label for="sizeExtraLarge">Extra Large ($16.00)</label><br>
+            </div>
+            <div class="menu right">
+                <h3>Meats:</h3>
+                <input type="checkbox" id="pepperoni" name="meat" value="Pepperoni" onclick="updatePrice(1.5)">
+                <label for="pepperoni">Pepperoni ($1.50)</label><br>
+                <input type="checkbox" id="sausage" name="meat" value="Sausage" onclick="updatePrice(1.5)">
+                <label for="sausage">Sausage ($1.50)</label><br>
+                <input type="checkbox" id="bacon" name="meat" value="Bacon" onclick="updatePrice(1.5)">
+                <label for="bacon">Canadian Bacon ($1.50)</label><br>
+                <input type="checkbox" id="groundBeef" name="meat" value="Ground Beef" onclick="updatePrice(1.5)">
+                <label for="groundBeef">Ground Beef ($1.50)</label><br>
+                <input type="checkbox" id="anchovy" name="meat" value="Anchovy" onclick="updatePrice(2.5)">
+                <label for="anchovy">Anchovy ($2.50)</label><br>
+                <input type="checkbox" id="chicken" name="meat" value="Chicken" onclick="updatePrice(2.5)">
+                <label for="chicken">Chicken ($2.50)</label><br>
+                <input type="checkbox" id="hawaiian" name="meat" value="Hawaiian" onclick="updatePrice(2.5)">
+                <label for="hawaiian">Hawaiian ($2.50)</label><br>
+            </div>
+            <div class="menu left">
+                <h3>Vegetables:</h3>
+                <input type="checkbox" id="mushrooms" name="veggies" value="Mushrooms" onclick="updatePrice(1.0)">
+                <label for="mushrooms">Mushrooms ($1.00)</label><br>
+                <input type="checkbox" id="onions" name="veggies" value="Onions" onclick="updatePrice(1.0)">
+                <label for="onions">Onions ($1.00)</label><br>
+                <input type="checkbox" id="peppers" name="veggies" value="Bell Peppers" onclick="updatePrice(1.0)">
+                <label for="peppers">Bell Peppers ($1.00)</label><br>
+                <input type="checkbox" id="olives" name="veggies" value="Black Olives" onclick="updatePrice(1.0)">
+                <label for="olives">Black Olives ($1.00)</label><br>
+                <input type="checkbox" id="tomatoes" name="veggies" value="Tomatoes" onclick="updatePrice(1.0)">
+                <label for="tomatoes">Tomatoes ($1.00)</label><br>
+                <input type="checkbox" id="jalapenos" name="veggies" value="Jalapeños" onclick="updatePrice(1.0)">
+                <label for="jalapenos">Jalapeños ($1.00)</label><br>
+                <input type="checkbox" id="pineapple" name="veggies" value="Pineapple" onclick="updatePrice(1.5)">
+                <label for="pineapple">Pineapple ($1.50)</label><br>
+            </div>
+            <div class="menu right">
+                <h3>Sauces:</h3>
+                <input type="checkbox" id="marinara" name="sauces" value="Marinara Sauce" onclick="updatePrice(0)">
+                <label for="marinara">Marinara Sauce (Free)</label><br>
+                <input type="checkbox" id="whiteSauce" name="sauces" value="White Sauce" onclick="updatePrice(1.0)">
+                <label for="whiteSauce">White Sauce ($1.00)</label><br>
+                <input type="checkbox" id="bbqSauce" name="sauces" value="BBQ Sauce" onclick="updatePrice(1.0)">
+                <label for="bbqSauce">BBQ Sauce ($1.00)</label><br>
+                <input type="checkbox" id="pestoSauce" name="sauces" value="Pesto Sauce" onclick="updatePrice(1.5)">
+                <label for="pestoSauce">Pesto Sauce ($1.50)</label><br>
+                <input type="checkbox" id="buffaloSauce" name="sauces" value="Buffalo Sauce" onclick="updatePrice(1.0)">
+                <label for="buffaloSauce">Buffalo Sauce ($1.00)</label><br>
+                <input type="checkbox" id="ranchDrizzle" name="sauces" value="Ranch Drizzle" onclick="updatePrice(0.5)">
+                <label for="ranchDrizzle">Ranch Drizzle ($0.50)</label><br>
+            </div>
+            <div id="cart">
+                <h3>Your Order:</h3>
+                <div id="orderSummary"></div>
+                <h3 id="totalText">Subtotal: $<span id="totalPrice">0.00</span></h3>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

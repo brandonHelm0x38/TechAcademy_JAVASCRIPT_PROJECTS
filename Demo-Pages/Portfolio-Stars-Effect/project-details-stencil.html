@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brandon Helm Portfolio</title>
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Custom Media Queries -->
+    <link rel="stylesheet" href="css/custom-media.css">
+</head>
+<body>
+    <!-- ANIMATED BACKGROUND ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ================================================================= -->
+    <!-- The animated background container -->
+    <div class="animated-background"></div>
+    <!-- Shooting Stars Animation -->
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+
+    <!-- NAVBAR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ================================================================= -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Brandon Helm</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Showcase Projects
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="http://strategicpivot.com">Strategic Pivot</a></li>
+                </ul>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="skills-experience.html">Resume</a>
+                </li>
+                <li class="nav-item">
+                    <div class="nav-link" id="contact-nav-link" style="cursor:pointer;">Contact</div>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ================================================================= -->
+    <!-- The main content container with an internal scrollbar -->
+    <div class="scroll-container">
+        <main>
+            <!-- BootStrap Responsive Grid Container System -->
+            <div class="container">
+                <h1 style="text-align: center; padding-top: 3rem;">Project Details: <small>...</small></h1>
+                <hr>
+                <!-- Primary Card -->
+                <div class="card w-100 h-100">
+                    <!-- My Image and Summary Section -->
+                    <div class="row" style="padding:1rem; justify-content:center; align-items:center;">
+                        <!-- My Image Section -->
+                        <div class="col-md-4">
+                            <a href="#"><img src="images/portfolio-thumbs/strategic-pivot.jpg" class="card-img-top" alt="..."></a>
+                            <h5 class="card-title" style="text-align:center;">Clicking the image brings you to the site</h5>
+                        </div>
+                        
+                        <!-- My Summary Section -->
+                        <div class="col-md-8">
+                            <h2>Summary of Project</h2>
+                            <p>...</p>
+                        </div>
+                    </div>
+                    <!-- Technologies Utilized, Techniques Applied, & Challenges Faced Section -->
+                    <div class="row" style="padding:1rem;">
+                        <!-- Content for the left column -->
+                        <div class="col-md-4">
+                            <hr>
+                            <h3 style="text-align:center;">Technologies Utilized</h3>
+                            <table style="margin:auto;">
+                                <tr>
+                                    <td class="center-field" style="padding:.4rem;"><p>HTML5</p></td>
+                                    <td class="center-field" style="padding:.4rem;"><p><i class="fab fa-html5 fa-2x"></i></p></td>
+                                    <td class="center-field" style="padding:.4rem;"><p>CSS3</p></td>
+                                    <td class="center-field" style="padding:.4rem;"><p><i class="fab fa-css3-alt fa-2x"></i></p></td>
+                                </tr>
+                                <tr>
+                                    <td class="center-field" style="padding:.4rem;"><p>SQL</p></td>
+                                    <td class="center-field" style="padding:.4rem;"><p><i class="fas fa-database fa-2x"></i></p></td>
+                                    <td class="center-field" style="padding:.4rem;"><p>PHP</p></td>
+                                    <td class="center-field" style="padding:.4rem;"><p><i class="fab fa-php fa-2x"></i></p></td>
+                                </tr>
+                                <tr>
+                                    <td class="center-field" style="padding:.4rem;"><p>JavaScript</p></td>
+                                    <td class="center-field" style="padding:.4rem;"><p><i class="fab fa-js-square fa-2x"></i></p></td>
+                                    <td class="center-field" style="padding:.4rem;"><p>WebGL</p></td>
+                                    <td class="center-field" style="padding:.4rem;"><p><i class="fas fa-cubes fa-2x"></i></p></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- Content for the middle column -->
+                        <div class="col-md-4">
+                            <hr>
+                            <h3>Techniques Applied</h3>
+                            <ul class="body-text">
+                                <li>...</li>
+                                <br>
+                                <li>...</li>
+                            </ul>
+                        </div>
+                        <!-- Content for the right column -->
+                        <div class="col-md-4">
+                            <hr>
+                            <h3>Challenges Faced</h3>
+                            <ul class="body-text">
+                                <li>....</li>
+                                <br>
+                                <li>...</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Featured Experience Section -->
+                    <div class="row" style="padding:1rem;">
+                        <!-- Content for the left column -->
+                        <div class="col-md-12">
+                            <hr>
+                            <h3>Techniques gained or lessons learned from this project...</h3>
+                            <ul class="body-text">
+                                <li>...</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- ================================================================= -->
+            <footer class="bg-dark text-white pt-5 pb-4">
+                <div class="container text-center text-md-start">
+                    <div class="row text-center text-md-start">
+                        
+                        <!-- Company Info Column -->
+                        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                            <h5 class="text-uppercase mb-4 font-weight-bold text-warning text-center">Brandon Helm Outro</h5>
+                            <p>
+                                Thank you for visiting my portfolio website.  I look forward to connecting with you and exploring potential opportunities together. Please feel free to reach out to me through the contact information provided, or by filling out the contact form on this website. I am eager to discuss how my skills and experiences can contribute to your projects and goals. Let's create something amazing together!
+                            </p>
+                        </div>
+
+                        <!-- Contact Section Column -->
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                            <h5 class="text-uppercase mb-4 font-weight-bold text-warning text-center">Contact</h5>
+                            <p>
+                                <i class="fas fa-home mr-3" style="margin-right: 1rem;"></i> Saint Paul, MN 55104, US
+                            </p>
+                            <div style="display:flex;text-align:center;justify-content:center;align-items:center;">
+                                <p id="icon-frame"><i class="fas fa-envelope mr-3"></i></p>
+                                <a href="mailto:brandon.helm@strategicpivot.com" class="std-hyperlink">brandon.helm@strategicpivot.com</a>
+                            </div>
+                            <div style="display:flex;text-align:center;justify-content:center;align-items:center;">
+                                <p id="icon-frame"><i class="fas fa-phone mr-3"></i></p>
+                                <a rel="noopener noreferrer" href="tel:+16517752272" class="std-hyperlink">(651) 775-2272</a>
+                            </div>
+                        </div>
+
+                        <!-- Optional: Links Column -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                            <h5 class="text-uppercase mb-4 font-weight-bold text-warning text-center">GitHub Account</h5>
+                            <div id="network-on" class="text-center mt-3">
+                                <table style="margin:auto">
+                                    <tr>
+                                        <td><h6 class="card-subtitle mb-2">My GitHub:</h6></td>
+                                        <td><a href="https://github.com/brandonhelm0x38" target="_blank" class="text-white mr-4"><i class="fab fa-github"></i></a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- Add more links as needed -->
+                        </div>
+                        
+                        <!-- Optional: Social Media Column -->
+                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                            <h5 class="text-uppercase mb-4 font-weight-bold text-warning text-center">Network On</h5>
+                            <div id="network-on" class="mt-3">
+                                <!-- Add social media icons here, e.g., Font Awesome icons -->
+                                <table style="margin:auto">
+                                    <tr>
+                                        <td style="text-align:right;"><h6 class="card-subtitle mb-2">My Linked-In:</h6></td>
+                                        <td><a href="https://www.linkedin.com/in/strategicpivot" target="_blank" class="text-white mr-4"><i class="fab fa-linkedin-in"></i></a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="mb-4">
+
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div style="display:flex;text-align:center;justify-content:center;align-items:center;">
+                                <p style="margin-right:1rem;position:relative;top:-.2rem;">Copyright © 2026 All rights reserved by:</p>
+                                <a href="#" style="text-decoration: none;"><strong>Brandon Helm</strong></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </div> <!-- End of scroll-container -->
+    
+    <!-- CONTACT POP-UP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- ================================================================= -->
+    <!-- Contact Button -->
+    <div id="contact-button">
+        <p class="shine">Contact Me</p>
+    </div>
+    <!-- Contact Form Pop-up -->
+    <div id="contact-form">
+        <button id="close-contact-form" aria-label="Close contact form" style="position:absolute;top:0px;right:10px;font-size:3em;background:none;border:none;cursor:pointer;z-index:21;color:white;">&times;</button>
+        <h2>Contact Me</h2>
+
+        <div class="divider"></div>
+
+        <div class="flex-container-contact-form-info">
+            <div class="cf-my-details-col">
+                <p style="color:white;"><u>My Email:</u></p>
+                <a href="mailto:brandon.helm@strategicpivot.com">brandon.helm@<br>strategicpivot.com</a>
+                <p style="color:white;"><u>My Phone:</u></p>
+                <a href="tel:+16517752272">(651) 775-2272</a>
+            </div>
+            <div class="cf-linked-in-col">
+                <p style="color:white;"><u>My Linked-In:</u></p>
+                <a href="https://www.linkedin.com/in/strategicpivot" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <p style="color:white;"><u>My GitHub:</u></p>
+                <a href="https://github.com/brandonhelm0x38" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <p style="text-align: center;">Please fill out the form below to get in touch with me. This will send me an email with your contact information and message.</p>
+        <form action="php/send-email-mailerlib.php" method="POST">
+            <label for="name">Your Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Enter your first and last name..." required><br>
+            <label for="email">Your Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="Enter your email address..." required><br>
+            <label for="phone">Your Phone:</label><br>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number..." required><br>
+            <label for="message">Your Message:</label><br>
+            <textarea id="message" name="message" placeholder="Enter your message..."></textarea><br>
+            <input type="submit" value="Submit" id="submit-btn" name="submit">
+        </form>
+    </div>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"> </script>
+</body>
+</html>
